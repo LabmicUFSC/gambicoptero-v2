@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/gpio
+END
+very_simple_gpio.v
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/gpio/very_simple_gpio.v
+END
+gpio_axi4lite.v
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/gpio/gpio_axi4lite.v
+END
+hw.srcs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/gpio/hw.srcs
+END

@@ -1,0 +1,122 @@
+/*!
+
+@defgroup sysabs System Abstractions
+
+	@defgroup processmgt Process Management
+	@ingroup sysabs
+
+		@defgroup abs_task Task
+		@ingroup processmgt
+
+		@defgroup abs_thread Thread
+		@ingroup processmgt
+
+		@defgroup abs_activeobj Active Object
+		@ingroup processmgt
+
+	@defgroup memorymgt Memory Management
+	@ingroup sysabs	
+
+		@defgroup abs_address_space Address Space
+		@ingroup memorymgt
+
+		@defgroup abs_segment Memory Segment
+		@ingroup memorymgt
+
+	@defgroup processsync Process Synchronization
+	@ingroup sysabs
+
+		@defgroup abs_mutex Mutex
+		@ingroup processsync
+
+		@defgroup abs_semaphore Semaphore
+		@ingroup processsync
+
+		@defgroup abs_condvar Condition Variable
+		@ingroup processsync
+
+	@defgroup timming Timming
+	@ingroup sysabs
+
+		@defgroup abs_alarm Alarm
+		@ingroup timming
+
+		@defgroup abs_chronometer Chronometer
+		@ingroup timming
+
+		@defgroup abs_clock Clock
+		@ingroup timming
+
+		@defgroup abs_watchdog Watchdog
+		@ingroup timming
+
+	@defgroup communication Communication
+	@ingroup sysabs
+
+		@defgroup abs_communicator Communicator
+		@ingroup communication
+
+		@defgroup abs_channel Channel
+		@ingroup communication
+
+		@defgroup abs_network Network
+		@ingroup communication
+
+	@defgroup sensing Sensing and Actuating
+	@ingroup sysabs
+
+		@defgroup abs_sensor Sensors
+		@ingroup sensing
+
+		@defgroup abs_actuators Actuators
+		@ingroup sensing
+
+@defgroup hwmed Hardware Mediators
+
+	@defgroup arch Architecture
+	@ingroup hwmed
+
+		@defgroup med_cpu CPU
+		@ingroup arch
+
+		@defgroup med_mmu MMU
+		@ingroup arch
+
+		@defgroup med_tsc TSC - Timestamp Counter
+		@ingroup arch
+
+	@defgroup mach Machine
+	@ingroup hwmed
+
+		@defgroup med_ic Interrupt Controller
+		@ingroup mach
+
+		@defgroup med_timer Timer
+		@ingroup mach
+
+		@defgroup med_rtc Real Time Clock
+		@ingroup mach
+
+		@defgroup med_uart Uart
+		@ingroup mach
+
+		@defgroup med_nic Network Interface Card
+		@ingroup mach
+
+@defgroup sysinternal System Internals
+
+	@defgroup sys_boot Boot
+	@ingroup sysinternal
+
+	@defgroup sys_setup Setup
+	@ingroup sysinternal
+
+	@defgroup sys_init Init
+	@ingroup sysinternal
+
+	@defgroup sys_system System
+	@ingroup sysinternal
+
+@defgroup utils Utilities
+
+*/

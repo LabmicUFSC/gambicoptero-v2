@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/cc1000
+END
+cc1000_parameters.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/cc1000/cc1000_parameters.h
+END
+cc1000_registers.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/cc1000/cc1000_registers.h
+END
+cc1000.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/cc1000/cc1000.h
+END
+cc1000_rssi.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/cc1000/cc1000_rssi.h
+END

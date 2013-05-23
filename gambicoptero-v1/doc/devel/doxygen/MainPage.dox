@@ -1,0 +1,113 @@
+/*! 
+@mainpage
+
+@section intro_sec Introduction
+
+The EPOS Project (Embedded Parallel Operating %System) aims at
+automating the development of dedicated computing systems, so that
+developers can concentrate on what really matters: their
+applications. EPOS relies on the Application-Oriented %System Design
+Method (AOSD) proposed by Fröhlich to design and implement both
+software and hardware components that can be automatically adapted to
+fulfill the requirements of particular applications. Additionally,
+EPOS features a set of tools to select, adapt and plug components into
+an application-specific framework, thus enabling the automatic
+generation of an application-oriented system instance. Such an
+instance consists of a hardware platform implemented in terms of
+programmable logic, and the corresponding run-time support system
+implemented in terms of abstractions, hardware mediators, scenario
+adapters and aspect programs.
+
+The deployment of AOSD in EPOS is helping to produce components that
+are highly reusable, adaptable and maintainable. Low overhead and high
+performance are achieved by a careful implementation that makes use of
+generative programming techniques, including static
+metaprogramming. Furthermore, the fact that EPOS components are
+exported to users by means of coherent interfaces defined in the
+context of the application domain largely improves usability. All
+these technological advantages are directly reflected in the
+development process, reducing NRE costs and the time-to-market of
+software/hardware integrated projects.
+
+@section install_sec Using EPOS
+
+@subsection step1 Step 1: Downloading EPOS
+   
+EPOS CVS repository is available on-line through SSH. As an example, a
+check out can be performed as follows:
+
+    export CVS_RSH=ssh<br>
+    cvs -z3 -d:ext:logname@cvs.lisha.ufsc.br:/usr/local/cvs co epos 
+
+@subsection step2 Step 2: Setup the EPOS environment
+
+In order to work with EPOS, you need to set some environment variables
+as follows:
+
+# export EPOS=\<EPOS path\><br>
+# export PATH=\$PATH:\$EPOS/bin
+
+@subsection step3 Step 3: Configuring and Building EPOS
+
+EPOS Configuration is done through the definition of variables in \$EPOS/makedefs as follows:
+
+<ul>
+<li>
+ @b MODE : Configure EPOS %System Architecture. Possible values are:@n
+ <ul>
+   <li>@b Library: %System is linked with application.</li>
+   <li>@b Builtin: %System and Application are on the same AddressSpace </li>
+   <li>@b Kernel:  %System and Application are on different AddressSpace with a SystemCall layer between them.</li>
+ </ul>
+</li>
+
+<li>
+ @b ARCH : Configure the Architecture used for generation of the system. Possible values are: @n
+ <ul>
+    <li>@b ARCH_IA32: Intel x86 32-bits Architecture @n</li>
+    <li>@b ARCH_AVR8: Atmel AVR 8-bits Architecture @n</li>
+    <li>@b ARCH_PPC32: IBM PowerPC 32-bits Architecture @n</li>
+ </ul>
+
+</li>
+
+<li>
+ @b MACH : Configure the Machine used for generation of the system. Possible values are: @n
+ <ul>
+    <li>@b MACH_PC: Personal Computer Machines @n</li>
+    <li>@b MACH_ATMEGA16: Atmel ATMega16 Microprocessor Family @n</li>
+    <li>@b MACH_ATMEGA128: Atmel ATMega128 Microprocessor Family @n</li>
+    <li>@b MACH_ML310: Xilinx VirtexIIPro Evaluation Board @n</li>
+ </ul>
+</ul>
+
+Now that EPOS are configured, you are ready to build the system. Just type "make" on EPOS root directory.
+
+@subsection step4 Step 4: Building Application
+
+Once you have compiled EPOS, you are now ready to build your application. For this, you must use the 
+eposcc tool, that is installed on system when you build EPOS. This tool is a shell for the GCC compiler, 
+and accepts most options of GCC. This tools also are a shell for GCC Linker. For now we assume that 
+your application is only implemented in a single main.cc source file, but the process presented here 
+can be extended to a multi-file source code.
+
+Firstly we need compile your application using the eposcc tool, as follow:
+
+&nbsp;&nbsp; \# eposcc -c -ansi -O2 main.cc
+
+Now, you must link your application with the system, using one of the EPOS architecture mode (Library, 
+Builtin and Kernel). If you decided use Library mode, use the following command:
+
+&nbsp;&nbsp; \# eposcc --library -o test main.o
+
+Finally, you must create an EPOS image for load in your machine, to do this use the command eposmkbi, 
+as follows:
+
+&nbsp;&nbsp; \# eposmkbi epos.img test
+
+Now you can download epos.img on your target machine and enjoy your application running :)
+
+<!-- @section rest_sec Anything else ? -->
+<!-- \subpage overview -->
+
+*/

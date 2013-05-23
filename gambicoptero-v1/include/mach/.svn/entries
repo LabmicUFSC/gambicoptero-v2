@@ -1,0 +1,70 @@
+10
+
+dir
+381
+https://svn.inf.ufsc.br/kuhnen/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach
+https://svn.inf.ufsc.br/kuhnen
+
+
+
+2012-08-28T19:24:12.593909Z
+379
+kuhnen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5e1b2967-c51c-df11-b142-0211d820a19d
+
+avr_common
+dir
+
+integratorcp
+dir
+
+mc13224v
+dir
+
+pc
+dir
+
+axi4lite
+dir
+
+atmega16
+dir
+
+common
+dir
+
+atmega128
+dir
+
+at90can128
+dir
+
+atmega1281
+dir
+
+mica2
+dir
+
+ml310
+dir
+
+avrmcu
+dir
+
+plasma
+dir
+

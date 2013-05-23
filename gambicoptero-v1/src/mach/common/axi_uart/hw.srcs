@@ -1,0 +1,6 @@
+##################################################
+# IP Sources
+##################################################
+AXI_UART_SRCS = $(abspath $(addprefix $(BASE_DIR)/src/mach/common/axi_uart/, \
+axi_uart_xilinx.v))
+

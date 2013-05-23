@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc
+END
+ic.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/ic.h
+END
+info.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/info.h
+END
+device.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/device.h
+END
+machine.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/machine.h
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/config.h
+END
+display.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/display.h
+END
+e100.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/e100.h
+END
+memory_map.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/memory_map.h
+END
+traits.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/traits.h
+END
+nic.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/nic.h
+END
+uart.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/uart.h
+END
+pci.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/pci.h
+END
+pcnet32.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/pcnet32.h
+END
+c905.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/c905.h
+END
+timer.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/timer.h
+END
+eeprom.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/eeprom.h
+END
+rtc.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/pc/rtc.h
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/amba_wishbone
+END
+axi4lite_to_wishbone.v
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/amba_wishbone/axi4lite_to_wishbone.v
+END
+hw.srcs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/amba_wishbone/hw.srcs
+END

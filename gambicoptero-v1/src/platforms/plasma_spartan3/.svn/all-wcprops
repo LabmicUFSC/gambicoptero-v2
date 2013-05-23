@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_spartan3
+END
+plasma_spartan3.ucf
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_spartan3/plasma_spartan3.ucf
+END
+plasma_spartan3.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_spartan3/plasma_spartan3.vhd
+END
+clock_div.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_spartan3/clock_div.vhd
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_spartan3/makefile
+END

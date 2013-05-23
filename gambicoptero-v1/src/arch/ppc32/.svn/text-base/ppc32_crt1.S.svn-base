@@ -1,0 +1,23 @@
+        .file        "crt1.s"
+
+# This work is licensed under the EPOS Software License v1.0.
+# A copy of this license is available at the EPOS system source tree root.
+# A copy of this license is also available online at:
+# http://epos.lisha.ufsc.br/EPOS+Software+License+v1.0
+# Note that EPOS Software License applies to both source code and executables.
+
+        .text
+        .align 4
+        .globl        _start
+        .type        _start,@function
+_start:
+        sync
+        nop
+        bl        _init
+        .align        4
+        .globl        __epos_library_app_entry
+__epos_library_app_entry:
+        bl        main
+        /* mr        3,3  ; EABI Standard tells the register. */
+        bl        _fini
+        bl        _exit

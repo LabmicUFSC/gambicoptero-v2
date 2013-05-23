@@ -1,0 +1,17 @@
+/*! @namespace System
+    @brief This is the namespace where EPOS Components are implemented
+
+    EPOS Components are divided in the following categories:
+
+    @li \ref hwmed
+    @li \ref sysabs 
+    @li \ref utils 
+    @li \ref sysinternals
+<!--    @li %System StartUp
+           @li \ref sys_boot
+           @li \ref sys_setup
+           @li \ref sys_init -->
+
+    This documentation must be developed... 
+
+*/

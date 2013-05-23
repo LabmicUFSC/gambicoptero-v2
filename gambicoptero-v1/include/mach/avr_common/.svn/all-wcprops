@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common
+END
+ic.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/ic.h
+END
+info.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/info.h
+END
+spi.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/spi.h
+END
+uart.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/uart.h
+END
+flash.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/flash.h
+END
+timer.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/timer.h
+END
+machine.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/machine.h
+END
+cc1000.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/cc1000.h
+END
+traits.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/traits.h
+END
+adc.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/adc.h
+END
+eeprom.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/avr_common/eeprom.h
+END

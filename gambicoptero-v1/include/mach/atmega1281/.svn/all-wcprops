@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281
+END
+spi.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/spi.h
+END
+ic.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/ic.h
+END
+info.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/info.h
+END
+flash.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/flash.h
+END
+usart.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/usart.h
+END
+radio.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/radio.h
+END
+at86rf230.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/at86rf230.h
+END
+sht11.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/sht11.h
+END
+machine.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/machine.h
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/config.h
+END
+memory_map.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/memory_map.h
+END
+traits.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/traits.h
+END
+nic.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/nic.h
+END
+sensor.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/sensor.h
+END
+battery.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/battery.h
+END
+uart.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/uart.h
+END
+timer.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/timer.h
+END
+adxl345.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/adxl345.h
+END
+eeprom.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/eeprom.h
+END
+adc.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/adc.h
+END
+rtc.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/atmega1281/rtc.h
+END

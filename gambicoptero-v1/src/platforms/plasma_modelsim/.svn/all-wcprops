@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_modelsim
+END
+plasma_testbench.v
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_modelsim/plasma_testbench.v
+END
+simulation_cmds.do
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_modelsim/simulation_cmds.do
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_modelsim/makefile
+END

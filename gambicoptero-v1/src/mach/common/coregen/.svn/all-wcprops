@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/coregen
+END
+clk_xlnx_100M_diff.xco
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/coregen/clk_xlnx_100M_diff.xco
+END
+clk_xlnx_125M_diff.xco
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/coregen/clk_xlnx_125M_diff.xco
+END
+hw.srcs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/coregen/hw.srcs
+END
+ram_xlnx_256k.xco
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/coregen/ram_xlnx_256k.xco
+END
+ram_amba_1024k.xco
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/coregen/ram_amba_1024k.xco
+END
+ram_amba_128k.coe
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/coregen/ram_amba_128k.coe
+END
+axi4_ddr3_contrl.xco
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/coregen/axi4_ddr3_contrl.xco
+END
+coregen.cgp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/coregen/coregen.cgp
+END
+ram_amba_128k.xco
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/coregen/ram_amba_128k.xco
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/axi_uart
+END
+hw.srcs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/axi_uart/hw.srcs
+END
+axi_uart_xilinx.v
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/axi_uart/axi_uart_xilinx.v
+END

@@ -1,0 +1,48 @@
+
+####################
+## Top block pins ##
+#################### 
+
+NET "gpio_leds[0]"      LOC = "AC22";   ## 2   on LED DS12, 1 on J62
+NET "gpio_leds[1]"      LOC = "AC24";   ## 2   on LED DS11, 2 on J62
+NET "gpio_leds[2]"      LOC = "AE22";   ## 2   on LED DS9,  3 on J62
+NET "gpio_leds[3]"      LOC = "AE23";   ## 2   on LED DS10, 4 on J62
+NET "gpio_leds[4]"      LOC = "AB23";   ## 2   on LED DS15, 5 on J62
+NET "gpio_leds[5]"      LOC = "AG23";   ## 2   on LED DS14, 6 on J62
+NET "gpio_leds[6]"      LOC = "AE24";   ## 2   on LED DS22, 7 on J62
+NET "gpio_leds[7]"      LOC = "AD24";   ## 2   on LED DS21, 8 on J62
+
+NET "gpio_sws[0]"                  LOC = "D22";    ## 1   on SW1 DIP switch (active-high)
+NET "gpio_sws[1]"                  LOC = "C22";    ## 2   on SW1 DIP switch (active-high)
+NET "gpio_sws[2]"                  LOC = "L21";    ## 3   on SW1 DIP switch (active-high)
+NET "gpio_sws[3]"                  LOC = "L20";    ## 4   on SW1 DIP switch (active-high)
+NET "gpio_sws[4]"                  LOC = "C18";    ## 5   on SW1 DIP switch (active-high)
+NET "gpio_sws[5]"                  LOC = "B18";    ## 6   on SW1 DIP switch (active-high)
+NET "gpio_sws[6]"                  LOC = "K22";    ## 7   on SW1 DIP switch (active-high)
+NET "gpio_sws[7]"                  LOC = "K21";    ## 8   on SW1 DIP switch (active-high)
+
+NET "dir_leds[3]"                    LOC = "AE21";   ## 2   on LED DS19
+NET "dir_leds[2]"                    LOC = "AH27";   ## 2   on LED DS20
+NET "dir_leds[1]"                    LOC = "AH28";   ## 2   on LED DS18
+NET "dir_leds[0]"                    LOC = "AD21";   ## 2   on LED DS17
+
+NET "dir_btns[3]"                     LOC = "G17";    ## 2   on SW7 pushbutton (active-high)
+NET "dir_btns[2]"                     LOC = "A19";    ## 2   on SW5 pushbutton (active-high)
+NET "dir_btns[1]"                     LOC = "A18";    ## 2   on SW6 pushbutton (active-high)
+NET "dir_btns[0]"                     LOC = "H17";    ## 2   on SW8 pushbutton (active-high)
+
+NET "reset_btn"         LOC = "G26";    ## 2   on SW9 pushbutton (active-high)
+
+NET "uart_tx"         LOC = "J25";    ## 24  on U34
+NET "uart_rx"         LOC = "J24";    ## 25  on U34
+
+NET "clk_fpga_n"        LOC = "H9";     ## 5   on U11, 5 on U89 (DNP)
+NET "clk_fpga_p"        LOC = "J9";     ## 4   on U11, 4 on U89 (DNP)
+
+########################
+## Timing constraints ##
+########################
+
+NET "clk_fpga_p" TNM_NET = "clk_fpga_p";
+TIMESPEC "TS_clk_fpga_p" = PERIOD "clk_fpga_p" 5 ns HIGH 50 %;
+

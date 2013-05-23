@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/boot
+END
+ml310_boot.cc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/boot/ml310_boot.cc
+END
+pc_boot.S
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/boot/pc_boot.S
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/boot/makefile
+END

@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128
+END
+ic.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/ic.cc
+END
+nic_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/nic_init.cc
+END
+cmac128.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/cmac128.cc
+END
+radio.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/radio.cc
+END
+machine_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/machine_test.cc
+END
+machine.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/machine.cc
+END
+sensor_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/sensor_test.cc
+END
+nic_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/nic_test.cc
+END
+uart_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/uart_test.cc
+END
+timer_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/timer_test.cc
+END
+cmac128_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/cmac128_init.cc
+END
+radio_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/radio_init.cc
+END
+adc_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/adc_test.cc
+END
+cc1000.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/cc1000.cc
+END
+mts300.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/mts300.cc
+END
+machine_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/machine_init.cc
+END
+adc.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/adc.cc
+END
+rtc_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/rtc_test.cc
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/makefile
+END
+ic_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega128/ic_test.cc
+END

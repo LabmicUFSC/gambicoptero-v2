@@ -1,0 +1,6 @@
+##################################################
+# IP Sources
+##################################################
+AXI_WB_SRCS = $(abspath $(addprefix $(BASE_DIR)/src/mach/common/amba_wishbone/, \
+axi4lite_to_wishbone.v))
+

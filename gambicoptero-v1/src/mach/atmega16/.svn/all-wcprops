@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16
+END
+ic.cc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/ic.cc
+END
+nic_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/nic_init.cc
+END
+radio.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/radio.cc
+END
+machine_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/machine_test.cc
+END
+machine.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/machine.cc
+END
+nic_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/nic_test.cc
+END
+uart_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/uart_test.cc
+END
+timer_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/timer_test.cc
+END
+radio_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/radio_init.cc
+END
+adc_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/adc_test.cc
+END
+rtc_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/rtc_test.cc
+END
+machine_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/machine_init.cc
+END
+adc.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/adc.cc
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/makefile
+END
+ic_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/atmega16/ic_test.cc
+END

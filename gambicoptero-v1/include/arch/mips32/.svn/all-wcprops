@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/arch/mips32
+END
+tsc.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/arch/mips32/tsc.h
+END
+mmu.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/arch/mips32/mmu.h
+END
+traits.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/arch/mips32/traits.h
+END
+cpu.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/arch/mips32/cpu.h
+END

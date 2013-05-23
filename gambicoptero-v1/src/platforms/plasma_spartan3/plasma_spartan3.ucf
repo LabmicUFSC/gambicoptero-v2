@@ -1,0 +1,38 @@
+####################
+## Top block pins ##
+#################### 
+NET "gpio_leds[0]"        LOC = "K12";
+NET "gpio_leds[1]"        LOC = "P14";
+NET "gpio_leds[2]"        LOC = "L12";
+NET "gpio_leds[3]"        LOC = "N14";
+NET "gpio_leds[4]"        LOC = "P13";
+NET "gpio_leds[5]"        LOC = "N12";
+NET "gpio_leds[6]"        LOC = "P12";
+NET "gpio_leds[7]"        LOC = "P11";
+
+NET "gpio_sws[0]"         LOC = "F12";
+NET "gpio_sws[1]"         LOC = "G12";
+NET "gpio_sws[2]"         LOC = "H14";
+NET "gpio_sws[3]"         LOC = "H13";
+NET "gpio_sws[4]"         LOC = "J14";
+NET "gpio_sws[5]"         LOC = "J13";
+NET "gpio_sws[6]"         LOC = "K14";
+NET "gpio_sws[7]"         LOC = "K13";
+
+NET "buttons[3]"          LOC = "L14";
+NET "buttons[2]"          LOC = "L13";
+NET "buttons[1]"          LOC = "M14";
+NET "buttons[0]"          LOC = "M13";
+
+NET "uart_tx_o"           LOC = "R13";
+NET "uart_rx_i"           LOC = "T13";
+
+NET "clk_fpga"            LOC = "T9";
+
+########################
+## Timing constraints ##
+########################
+
+NET "clk_fpga" TNM_NET = "clk_fpga";
+TIMESPEC "TS_clk_fpga" = PERIOD "clk_fpga" 40 ns HIGH 50 %;
+

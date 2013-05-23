@@ -1,0 +1,43 @@
+10
+
+dir
+381
+https://svn.inf.ufsc.br/kuhnen/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms
+https://svn.inf.ufsc.br/kuhnen
+
+
+
+2012-04-18T18:14:50.756777Z
+314
+tarcisio.fischer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5e1b2967-c51c-df11-b142-0211d820a19d
+
+plasma_ml605
+dir
+
+plasma_axi4lite_ml605
+dir
+
+plasma_modelsim
+dir
+
+plasma_spartan3
+dir
+
+plasma_axi4lite_modelsim
+dir
+

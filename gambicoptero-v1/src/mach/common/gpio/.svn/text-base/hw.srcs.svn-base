@@ -1,0 +1,7 @@
+##################################################
+# IP Sources
+##################################################
+GPIO_SRCS = $(abspath $(addprefix $(BASE_DIR)/src/mach/common/gpio/, \
+gpio_axi4lite.v \
+very_simple_gpio.v))
+

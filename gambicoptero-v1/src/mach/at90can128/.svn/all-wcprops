@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128
+END
+ic.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/ic.cc
+END
+uart.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/uart.cc
+END
+can_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/can_test.cc
+END
+can.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/can.cc
+END
+machine_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/machine_test.cc
+END
+can_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/can_init.cc
+END
+machine.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/machine.cc
+END
+adc.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/adc.cc
+END
+machine_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/machine_init.cc
+END
+rtc_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/rtc_test.cc
+END
+rtc.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/rtc.cc
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/makefile
+END
+ic_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/ic_test.cc
+END
+uart_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/at90can128/uart_test.cc
+END

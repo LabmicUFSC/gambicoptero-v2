@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/simple_pic
+END
+pic.v
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/simple_pic/pic.v
+END
+pic_axi4lite.v
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/simple_pic/pic_axi4lite.v
+END
+hw.srcs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/simple_pic/hw.srcs
+END
+priority_enc.v
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/simple_pic/priority_enc.v
+END

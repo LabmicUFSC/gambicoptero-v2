@@ -1,0 +1,26 @@
+
+##################################################
+# IP Sources
+##################################################
+PLASMA_SRCS = $(abspath $(addprefix $(BASE_DIR)/src/mach/plasma/, \
+mlite_pack.vhd \
+plasma_axi4lite_master.vhd \
+plasma.vhd \
+plasma_axi4lite.vhd \
+ram_image.vhd \
+uart.vhd \
+eth_dma.vhd \
+mlite_cpu.vhd \
+alu.vhd \
+bus_mux.vhd \
+control.vhd \
+mem_ctrl.vhd \
+mult.vhd \
+pipeline.vhd \
+pc_next.vhd \
+reg_bank.vhd \
+shifter.vhd \
+cache.vhd \
+fake_external_ram.v \
+))
+

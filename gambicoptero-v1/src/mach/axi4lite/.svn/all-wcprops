@@ -1,0 +1,209 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite
+END
+ic.cc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/ic.cc
+END
+pc_next.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/pc_next.vhd
+END
+eth_dma.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/eth_dma.vhd
+END
+axi4lite_interrupt.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/axi4lite_interrupt.cc
+END
+cache.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/cache.vhd
+END
+shifter.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/shifter.vhd
+END
+pipeline.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/pipeline.vhd
+END
+reg_bank.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/reg_bank.vhd
+END
+mlite_pack.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/mlite_pack.vhd
+END
+ram_xilinx.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/ram_xilinx.vhd
+END
+uart.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/uart.vhd
+END
+ram.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/ram.vhd
+END
+mult.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/mult.vhd
+END
+mlite_cpu.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/mlite_cpu.vhd
+END
+bus_mux.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/bus_mux.vhd
+END
+timer_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/timer_test.cc
+END
+timer.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/timer.cc
+END
+fake_external_ram.v
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/fake_external_ram.v
+END
+plasma_axi4lite_master.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/plasma_axi4lite_master.vhd
+END
+nic_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/nic_init.cc
+END
+uart_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/uart_init.cc
+END
+mem_ctrl.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/mem_ctrl.vhd
+END
+hw.srcs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/hw.srcs
+END
+timer_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/timer_init.cc
+END
+machine.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/machine.cc
+END
+nic.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/nic.cc
+END
+plasma.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/plasma.vhd
+END
+uart.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/uart.cc
+END
+control.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/control.vhd
+END
+plasma_axi4lite.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/plasma_axi4lite.vhd
+END
+alu.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/alu.vhd
+END
+ic_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/ic_init.cc
+END
+machine_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/machine_init.cc
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/axi4lite/makefile
+END

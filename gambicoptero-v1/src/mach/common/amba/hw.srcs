@@ -1,0 +1,10 @@
+##################################################
+# IP Sources
+##################################################
+AMBA_SRCS = $(abspath $(addprefix $(BASE_DIR)/src/mach/common/amba/, \
+amba_mux.v \
+address_decoder.v \
+priority_encoder.v \
+axi4_reset_control.v \
+axi4lite_decoder.v))
+

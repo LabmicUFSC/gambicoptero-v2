@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/kuhnen/!svn/ver/358/INE5438/projeto_final/OpenEPOS-1.1RC/src/aeroquad
+END
+aceleModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/351/INE5438/projeto_final/OpenEPOS-1.1RC/src/aeroquad/aceleModel.h
+END
+motor.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/kuhnen/!svn/ver/351/INE5438/projeto_final/OpenEPOS-1.1RC/src/aeroquad/motor.cc
+END
+AeroQuad.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/kuhnen/!svn/ver/358/INE5438/projeto_final/OpenEPOS-1.1RC/src/aeroquad/AeroQuad.cc
+END
+AeroQuad.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/kuhnen/!svn/ver/352/INE5438/projeto_final/OpenEPOS-1.1RC/src/aeroquad/AeroQuad.h
+END
+Motors.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/kuhnen/!svn/ver/351/INE5438/projeto_final/OpenEPOS-1.1RC/src/aeroquad/Motors.h
+END
+AeroQuad.cc.autosave
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/kuhnen/!svn/ver/352/INE5438/projeto_final/OpenEPOS-1.1RC/src/aeroquad/AeroQuad.cc.autosave
+END
+Motors_PWM_Timer.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/351/INE5438/projeto_final/OpenEPOS-1.1RC/src/aeroquad/Motors_PWM_Timer.h
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/kuhnen/!svn/ver/351/INE5438/projeto_final/OpenEPOS-1.1RC/src/aeroquad/makefile
+END
+motor.o
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/kuhnen/!svn/ver/351/INE5438/projeto_final/OpenEPOS-1.1RC/src/aeroquad/motor.o
+END

@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/kuhnen/!svn/ver/379/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v
+END
+spi.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/370/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/spi.h
+END
+ic.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/379/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/ic.h
+END
+info.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/info.h
+END
+flash.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/flash.h
+END
+radio.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/radio.h
+END
+motor.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/377/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/motor.h
+END
+machine.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/machine.h
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/347/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/config.h
+END
+memory_map.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/kuhnen/!svn/ver/343/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/memory_map.h
+END
+traits.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/377/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/traits.h
+END
+buck_regulator.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/buck_regulator.h
+END
+sensor.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/362/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/sensor.h
+END
+nic.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/nic.h
+END
+battery.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/battery.h
+END
+uart.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/uart.h
+END
+i2c.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/377/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/i2c.h
+END
+ertj1vg103fa.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/ertj1vg103fa.h
+END
+timer.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/timer.h
+END
+adxl345.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/379/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/adxl345.h
+END
+transceiver.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/transceiver.h
+END
+adc.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/adc.h
+END
+itg3200.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/377/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/itg3200.h
+END
+bma180.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/kuhnen/!svn/ver/362/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/bma180.h
+END
+rtc.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/include/mach/mc13224v/rtc.h
+END

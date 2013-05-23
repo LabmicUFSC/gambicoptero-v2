@@ -1,0 +1,14 @@
+
+no arquivo machine/mc12334v/config.h
+
+foi declarado o typedef MC13224V_Acceleromter,   deve ser criado uma machine aeroquad
+
+
+
+no machine/mc12334v/traits, foi griado traits do accelerometer, vide item anterior
+
+
+arquivo system/types.h tem que ser declarada as novas classes criadas(Accelerometer e BM180, e  giroscópio), se a mesma for usada no config.h do machine
+
+onde declarar a classe i2C  no types?? é um mediador de protocolo de comunicação
+

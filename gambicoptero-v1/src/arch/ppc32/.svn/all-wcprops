@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32
+END
+mmu_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/mmu_test.cc
+END
+ppc32_crt1.S
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/ppc32_crt1.S
+END
+mmu.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/mmu.cc
+END
+mmu_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/mmu_init.cc
+END
+ppc32_crtbegin.S
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/ppc32_crtbegin.S
+END
+ppc32_crtend.S
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/ppc32_crtend.S
+END
+ppc32_crti.S
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/ppc32_crti.S
+END
+cpu_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/cpu_test.cc
+END
+cpu.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/cpu.cc
+END
+tsc_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/tsc_test.cc
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/makefile
+END
+cpu_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/cpu_init.cc
+END
+ppc32_crtn.S
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/ppc32/ppc32_crtn.S
+END

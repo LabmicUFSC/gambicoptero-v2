@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_axi4lite_modelsim
+END
+plasma_axi4lite_testbench.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_axi4lite_modelsim/plasma_axi4lite_testbench.vhd
+END
+plasma_axi4lite_modelsim.sav
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_axi4lite_modelsim/plasma_axi4lite_modelsim.sav
+END
+simulation_cmds_dec.do
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_axi4lite_modelsim/simulation_cmds_dec.do
+END
+plasma_axi4lite_dec_testbench.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_axi4lite_modelsim/plasma_axi4lite_dec_testbench.vhd
+END
+plasma_axi4lite_dec_modelsim_interrupts.sav
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_axi4lite_modelsim/plasma_axi4lite_dec_modelsim_interrupts.sav
+END
+simulation_cmds.do
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_axi4lite_modelsim/simulation_cmds.do
+END
+plasma_axi4lite_dec_modelsim.sav
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_axi4lite_modelsim/plasma_axi4lite_dec_modelsim.sav
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/platforms/plasma_axi4lite_modelsim/makefile
+END

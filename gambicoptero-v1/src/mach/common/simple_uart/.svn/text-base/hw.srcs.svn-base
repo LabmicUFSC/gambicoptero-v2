@@ -1,0 +1,11 @@
+##################################################
+# IP Sources
+##################################################
+SIMPLE_UART_SRCS = $(abspath $(addprefix $(BASE_DIR)/src/mach/common/simple_uart/, \
+shortfifo.v \
+medfifo.v \
+simple_uart_rx.v \
+simple_uart_tx.v \
+simple_uart.v \
+simple_uart_axi4lite.v))
+

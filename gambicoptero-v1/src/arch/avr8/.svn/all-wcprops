@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8
+END
+avr8_crtend.S
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/avr8_crtend.S
+END
+mmu_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/mmu_test.cc
+END
+mmu.cc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/mmu.cc
+END
+avr8_crtbegin.S
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/avr8_crtbegin.S
+END
+cpu_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/cpu_init.cc
+END
+tsc_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/tsc_init.cc
+END
+avr8_crti.S
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/avr8_crti.S
+END
+mmu_init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/mmu_init.cc
+END
+avr8_crtn.S
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/avr8_crtn.S
+END
+avr8_crt1.S
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/avr8_crt1.S
+END
+cpu_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/cpu_test.cc
+END
+cpu.cc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/cpu.cc
+END
+tsc_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/tsc_test.cc
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/makefile
+END
+tsc.cc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/arch/avr8/tsc.cc
+END

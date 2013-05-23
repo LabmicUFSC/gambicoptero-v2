@@ -1,0 +1,7 @@
+##################################################
+# IP Sources
+##################################################
+SIMPLE_TIMER_SRCS = $(abspath $(addprefix $(BASE_DIR)/src/mach/common/simple_timer/, \
+timer2.v \
+timer_axi4lite.v))
+

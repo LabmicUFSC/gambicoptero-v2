@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/amba
+END
+priority_encoder.v
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/amba/priority_encoder.v
+END
+hw.srcs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/amba/hw.srcs
+END
+axi4_reset_control.v
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/amba/axi4_reset_control.v
+END
+axi4lite_decoder.v
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/amba/axi4lite_decoder.v
+END
+amba_mux.v
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/amba/amba_mux.v
+END
+address_decoder.v
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/kuhnen/!svn/ver/314/INE5438/projeto_final/OpenEPOS-1.1RC/src/mach/common/amba/address_decoder.v
+END
