@@ -1,5 +1,5 @@
 GXX = g++
-OBJS = main.o AeroQuad.o Pid.o
+OBJS = Kinematics.o main.o AeroQuad.o Pid.o
 OUTPUT = PidValidation
 
 all: $(OBJS)
@@ -14,6 +14,9 @@ Pid.o: Pid.cpp
 
 AeroQuad.o: AeroQuad.cpp
 	$(GXX) -c AeroQuad.cpp -o AeroQuad.o	
+
+Kinematics.o: Kinematics.cpp
+	$(GXX) -c Kinematics.cpp -o Kinematics.o	
 
 clean:
 	rm -rf $(OBJS) $(OUTPUT)

@@ -26,7 +26,7 @@ MACH_ATMEGA1281 := atmega1281
 MACH_AT90CAN128 := at90can128
 MACH_ML310      := ml310
 MACH_PLASMA     := plasma
-
+MACH_AXI4LITE	:= axi4lite
 MACH_MC13224V   := mc13224v
 MACH_INTEGRATOR := integratorcp
 
@@ -51,7 +51,7 @@ $(ARCH_IA32)_COMP_PREFIX   := /usr/local/ia32/gcc/bin/ia32-
 $(ARCH_AVR8)_COMP_PREFIX   := /usr/local/avr/gcc/bin/avr-
 $(ARCH_PPC32)_COMP_PREFIX  := /usr/local/ppc32/gcc/bin/ppc32-
 $(ARCH_MIPS32)_COMP_PREFIX := /usr/local/mips/gcc/bin/mips-
-$(ARCH_ARM7)_COMP_PREFIX   := /usr/local/arm/gcc/bin/arm-
+$(ARCH_ARM7)_COMP_PREFIX   := /home/user/Downloads/arm-gcc-4.4.4/bin/arm-
 COMP_PREFIX                := $($(ARCH)_COMP_PREFIX)
 
 # Boot memory maps
@@ -278,22 +278,18 @@ LMACHNAME = mach
 LSYSNAME  = system
 LINITNAME = init
 LUTILNAME = util
-LAEROQUADNAME= aeroquad
 LIBARCH   = $(LIB)/lib$(LARCHNAME)_$(ARCH).a
 LIBMACH   = $(LIB)/lib$(LMACHNAME)_$(ARCH).a
 LIBSYS    = $(LIB)/lib$(LSYSNAME)_$(ARCH).a
 LIBINIT   = $(LIB)/lib$(LINITNAME)_$(ARCH).a
 LIBUTIL   = $(LIB)/lib$(LUTILNAME)_$(ARCH).a
-LIBAEROQUAD  = $(LIB)/lib$(LAEROQUADNAME)_$(ARCH).a
 LARCH     = $(LARCHNAME)_$(ARCH)
 LMACH     = $(LMACHNAME)_$(ARCH)
 LSYS      = $(LSYSNAME)_$(ARCH)
 LINIT     = $(LINITNAME)_$(ARCH)
 LUTIL     = $(LUTILNAME)_$(ARCH)
-LAEROQUAD = $(LAEROQUADNAME)_$(ARCH)
 ifndef APPLICATION
-APPLICATION = i2c_test 
-#APPLICATION = $(MACH)_app
+APPLICATION = $(MACH)_app
 endif
 
 # Tools to adapt linux files

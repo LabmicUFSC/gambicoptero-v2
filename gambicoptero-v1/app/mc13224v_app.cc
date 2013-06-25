@@ -7,6 +7,7 @@
 // Note that EPOS Software License applies to both source code and executables.
 #include <alarm.h>
 #include <sensor.h>
+#include <mach/mc13224v/i2c.h>
 
 __USING_SYS
 
@@ -18,67 +19,57 @@ char msg[DATA_SIZE];
 NIC * nic;
 OStream cout;
 
-void turn_on_led1() {
-    unsigned int *GPIO_BASE = (unsigned int*)0x80000000;
-    *GPIO_BASE = 1 << 23;
+void i2c_init() {
+    /* Initialize i2c module */
+    MC13224V_I2c::i2c_init();
+
+    CPU::out32(
+        Machine::IO::GPIO_FUNC_SEL0,
+        CPU::in32(Machine::IO::GPIO_FUNC_SEL0)
+        |  (1 << 24) /* set GPIO_12 to I2C_SCL */
+        |  (1 << 26) /* set GPIO_13 to I2C_SDA */
+    );
+
+    /* Configure i2c module */
+    MC13224V_I2c::I2Config_t config;
+    config.i2cInteruptEn = false;
+    config.freqDivider = 0x20;
+    config.i2cBroadcastEn = false;
+    config.saplingRate = 0x10; /* default */
+    config.slaveAddress = 0x00;
+    config.I2cCallbackFunction_func = 0;
+    MC13224V_I2c::i2c_setConfig(&config);
+
+    /* Enable i2c module */
+    MC13224V_I2c::i2c_enable(); 
 }
 
-void turn_on_led2() {
-    unsigned int *GPIO_BASE = (unsigned int*)0x80000000;
-    *GPIO_BASE = 1 << 24;
+MC13224V_I2c::I2cErr_t i2cWrite(uint8_t data[], int data_size, uint8_t addr, bool releaseBus) {
+    return MC13224V_I2c::i2c_sendData(addr,
+                                      &data[0],
+                                      data_size,
+                                      (releaseBus) ?
+                                        MC13224V_I2c::gI2cMstrReleaseBus_c :
+                                        MC13224V_I2c::gI2cMstrHoldBus_c
+    ); 
 }
 
-void sensor(unsigned char id) {
-    turn_on_led1();
-    cout << "Sensor id = " << (int) id << "\n";
+uint8_t i2cReadByte(uint8_t addr, bool releaseBus) {
+    uint8_t data[1] = { 0x00 };
+    MC13224V_I2c::i2c_receiveData(addr | 0x01,
+                                  &data[0],
+                                  1,
+                                  (releaseBus) ?
+                                   MC13224V_I2c::gI2cMstrReleaseBus_c :
+                                   MC13224V_I2c::gI2cMstrHoldBus_c
+    ); 
 
-    Temperature_Sensor * temp = new Temperature_Sensor();
-
-    for (unsigned int i = 0; i < DATA_SIZE; i++) {
-        msg[i] = i;
-    }
-
-    msg[0] = id;
-
-    char c = 0;
-
-    while (true) {
-        msg[1] = c++;
-        msg[2] = temp->sample();
-
-        int r;
-        while ((r = nic->send(NIC::BROADCAST, (NIC::Protocol) 1, &msg, sizeof(msg))) != 11)
-            cout << "failed " << r << "\n";
-
-        cout << "tx done\n";
-
-        for (volatile unsigned long i = 0; i <= 50 * (Traits<Machine>::CLOCK / 1000UL); i++);
-    }
-}
-
-void sink() {
-    NIC::Protocol prot;
-    NIC::Address src;
-
-    turn_on_led2();
-    cout << "Sink\n";
-
-    while (true) {
-        while(!(nic->receive(&src, &prot, &msg, sizeof(msg)) > 0))
-            cout << "failed\n";
-
-        cout << "\n##########\n";
-        cout << "Sender id: "   << (int) msg[0] << "\n";
-        cout << "Msg number: "  << (int) msg[1] << "\n";
-        cout << "Temperature: " << (int) msg[2] << " C\n";
-        cout << "Protocol:"     << (int) prot   << "\n";
-    }
+    return data[0];
 }
 
 int main() {
-    nic = new NIC();
+	MC13224V_I2c::i2c_init();
+	
 
-    sink();
-//    sensor(1);
 }
 

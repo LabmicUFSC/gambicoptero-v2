@@ -10,6 +10,7 @@ using std::fstream;
 
 #include "Pid.h"
 #include "AeroQuad.h"
+#include "Kinematics.h"
 
 
 int main(int argc, char const *argv[])
@@ -19,6 +20,7 @@ int main(int argc, char const *argv[])
 	AeroQuad::_currentTime = 0.0f;
 
 	Pid pid(30.0f, 0.0f, 0.0f);
+	Kinematics sensor(0.0f, 0.0f, 0.0f);
 
 	const float targetPosition = 100.0f;
 	float current = 0.0f;
@@ -33,16 +35,13 @@ int main(int argc, char const *argv[])
 	// while( fabs(current - targetPosition) > epsilon )
 	while( AeroQuad::_currentTime < 2000.0f )
 	{	
-		AeroQuad::_currentTime += 0.1;
-		if(i % 100 == 0)
-		{
-			cout << "(time, position) = (" << AeroQuad::_currentTime << ", " << current << ")" << endl;
-			out << AeroQuad::_currentTime << "\t" << current << endl;
-			pidValue = pid.updatePid(targetPosition, current, 0);
-			current += pidValue / 500;
-			k++;
-		}
-		i++;
+		AeroQuad::_currentTime += 0.010;
+		current = sensor.getPos();	
+		cout << "(time, position) = (" << AeroQuad::_currentTime << ", " << current << ")" << endl;
+		out << AeroQuad::_currentTime << "\t" << current << endl;
+		pidValue = pid.updatePid(targetPosition, current, 0);
+		sensor.setAccel(pidValue);
+		sensor.updateTime(0.010f);
 	}
 	out.close();
 
