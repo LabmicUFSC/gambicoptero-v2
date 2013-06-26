@@ -15,10 +15,12 @@ float Kinematics::getPos() {
 }
 
 void Kinematics::setAccel(float accel) {
-	this->acceleration = accel;
+	this->acceleration = accel-10;
 }
 
 void Kinematics::updateTime(float amount) {
 	this->position += this->velocity*amount + acceleration*amount*amount/2.0f;
+	if(this->position < 0)
+		this->position = 0;
 	this->velocity += this->acceleration*amount;
 }

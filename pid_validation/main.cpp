@@ -19,10 +19,10 @@ int main(int argc, char const *argv[])
 	cout << "Hello World" << endl;
 	AeroQuad::_currentTime = 0.0f;
 
-	Pid pid(1.0f, -100.0f, -30.0f);
+	Pid pid(1.0f, 0.1000f, -0.40f);
 	Kinematics sensor(0.0f, 0.0f, 0.0f);
 
-	const float targetPosition = 100.0f;
+	const float targetPosition = 10.0f;
 	float current = 0.0f;
 	float pidValue;
 	float epsilon = 0.01;
@@ -36,10 +36,11 @@ int main(int argc, char const *argv[])
 	while( AeroQuad::_currentTime < 100.0f )
 	{	
 		AeroQuad::_currentTime += 0.010;
-		current = sensor.getPos();	
+		current = sensor.getPos();
+		cout << current << endl;	
 		out << AeroQuad::_currentTime << "\t" << current << endl;
 		pidValue = pid.updatePid(targetPosition, current, 0);
-		// cout << "inst " << AeroQuad::_currentTime << " pid = " << pidValue << endl;
+		cout << "inst " << AeroQuad::_currentTime << " pid = " << pidValue << endl;
 		sensor.setAccel(pidValue);
 		sensor.updateTime(0.010f);
 	}

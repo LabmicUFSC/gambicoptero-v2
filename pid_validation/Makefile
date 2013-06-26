@@ -5,6 +5,7 @@ OUTPUT = PidValidation
 all: $(OBJS)
 	$(GXX) -o $(OUTPUT) $(OBJS)
 	./$(OUTPUT)
+	bash generateChart.sh
 
 main.o: main.cpp
 	$(GXX) -c main.cpp -o main.o 

@@ -1,7 +1,5 @@
 #include "Pid.h"
-
-
-
+#include <stdio.h>
 
 Pid::Pid(const float P, const float I, const float D)
 {
@@ -27,7 +25,7 @@ float Pid::updatePid(float targetPosition, float currentPosition, int pidIDX)
 
 	PIDparameters->integratedError += error * deltaPIDTime;
 	PIDparameters->integratedError = AQMath::constrain(PIDparameters->integratedError, -PIDparameters->windupGuard, PIDparameters->windupGuard);
-	float dTerm = PIDparameters->D * (currentPosition - PIDparameters->lastPosition) / (deltaPIDTime * 100); // dT fix from Honk
+	float dTerm = PIDparameters->D * (currentPosition - PIDparameters->lastPosition) / (deltaPIDTime/* * 100*/); // dT fix from Honk
 	PIDparameters->lastPosition = currentPosition;
 	return (PIDparameters->P * error) + (PIDparameters->I * (PIDparameters->integratedError)) + dTerm;
 }
