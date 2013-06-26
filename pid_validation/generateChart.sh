@@ -1,3 +1,2 @@
 #!/bin/sh
-gnuplot pid.gnu
-evince pid.pdf
+gnuplot pid.gnu && evince pid.pdf
