@@ -26,6 +26,7 @@ int main(int argc, char const *argv[])
 	Kinematics sensor(0.0f, 0.0f, 0.0f);
 
 	const float targetPosition = 3.0f;
+
 	float current = 0.0f;
 	float pidValue;
 	float epsilon = 0.01;
@@ -42,6 +43,8 @@ int main(int argc, char const *argv[])
 		AeroQuad::_currentTime += 0.010;
 		current = sensor.getPos();	
 		out << AeroQuad::_currentTime << "\t" << current << "\t" <<targetPosition <<  endl;
+		current = sensor.getPos();
+
 		pidValue = pid.updatePid(targetPosition, current, 0);
 		// cout << "inst " << AeroQuad::_currentTime << " pid = " << pidValue << endl;
 		sensor.setAccel(pidValue);

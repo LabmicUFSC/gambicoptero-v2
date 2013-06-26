@@ -1,7 +1,5 @@
 #include "Pid.h"
-
-
-
+#include <stdio.h>
 
 Pid::Pid(const float P, const float I, const float D)
 {
