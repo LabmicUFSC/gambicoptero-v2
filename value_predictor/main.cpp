@@ -17,8 +17,8 @@ int main(int argc, char const *argv[])
 
 	fstream out;
 	out.open("pred.dat", fstream::out);
-	pred.new_value(3, 1);
-	out << 1 << "\t" << 3 << endl;
+	pred.new_value(4, 1);
+	out << 1 << "\t" << 4 << endl;
 	pred.new_value(2, 2);
 	out << 2 << "\t" << 2 << endl;
 	pred.new_value(1, 3);

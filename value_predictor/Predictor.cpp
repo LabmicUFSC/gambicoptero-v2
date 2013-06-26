@@ -1,5 +1,5 @@
 #include "Predictor.h"
-
+#include <iostream>
 Predictor::Predictor() {
 	this->next = 0;
 }
@@ -48,10 +48,11 @@ float Predictor::get_prediction3(int now) {
 	float d1 = (values[previous]-values[preprevious])/
 			(times[previous]-times[preprevious]);
 
-	float d2 = (values[this->next]-values[previous])/
-			(times[this->next]-times[previous]);
+	float d2 = (values[preprevious]-values[this->next])/
+			(times[preprevious]-times[this->next]);
 
-	float d_predict = (d1-d2)/(times[previous]-times[preprevious]);
+	float dd = (d1-d2)/(times[previous]-times[preprevious]);
+	float d_predict = d2 + dd*(times[previous]-times[preprevious]);
 
 	float prediction = values[previous] + d_predict*(now-times[previous]);
 	new_value(prediction, now);
