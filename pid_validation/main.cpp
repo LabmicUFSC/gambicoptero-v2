@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	cout << "Hello World" << endl;
 	AeroQuad::_currentTime = 0.0f;
 
-	Pid pid(30.0f, 0.0f, 0.0f);
+	Pid pid(1.0f, -100.0f, -30.0f);
 	Kinematics sensor(0.0f, 0.0f, 0.0f);
 
 	const float targetPosition = 100.0f;
@@ -33,13 +33,13 @@ int main(int argc, char const *argv[])
 	fstream out;
 	out.open("pid.dat", fstream::out);
 	// while( fabs(current - targetPosition) > epsilon )
-	while( AeroQuad::_currentTime < 2000.0f )
+	while( AeroQuad::_currentTime < 100.0f )
 	{	
 		AeroQuad::_currentTime += 0.010;
 		current = sensor.getPos();	
-		cout << "(time, position) = (" << AeroQuad::_currentTime << ", " << current << ")" << endl;
 		out << AeroQuad::_currentTime << "\t" << current << endl;
 		pidValue = pid.updatePid(targetPosition, current, 0);
+		// cout << "inst " << AeroQuad::_currentTime << " pid = " << pidValue << endl;
 		sensor.setAccel(pidValue);
 		sensor.updateTime(0.010f);
 	}

@@ -20,7 +20,7 @@ Pid::~Pid()
 float Pid::updatePid(float targetPosition, float currentPosition, int pidIDX)
 {
     PIDdata * PIDparameters = &PID[pidIDX];
-	const float deltaPIDTime = (AeroQuad::_currentTime - PIDparameters->previousPIDTime) / 1000000.0;
+	const float deltaPIDTime = (AeroQuad::_currentTime - PIDparameters->previousPIDTime) /*/ 1000000.0*/;
 	
 	PIDparameters->previousPIDTime = AeroQuad::_currentTime; // AKA PID experiments
 	float error = targetPosition - currentPosition;
