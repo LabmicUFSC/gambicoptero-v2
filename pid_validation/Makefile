@@ -8,7 +8,7 @@ all: $(OBJS)
 	bash generateChart.sh
 
 main.o: main.cpp
-	$(GXX) -c main.cpp -o main.o 
+	$(GXX) -c main.cpp -o main.o  -std=c++11
 
 Pid.o: Pid.cpp
 	$(GXX) -c Pid.cpp -o Pid.o
