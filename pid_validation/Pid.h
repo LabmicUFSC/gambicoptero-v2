@@ -13,7 +13,7 @@ class Pid
         float integratedError;
         float windupGuard; // Thinking about having individual wind up guards for each PID
 
-        PIDdata(const float P = 0.0f, const float I = 0.0f, const float D = 0.0f):P(P),I(I),D(D), lastPosition(0.0f), previousPIDTime(0.0f), integratedError(0.0f), windupGuard(0.375){};
+        PIDdata(const float P = 0.0f, const float I = 0.0f, const float D = 0.0f):P(P),I(I),D(D), lastPosition(0.0f), previousPIDTime(0.0f), integratedError(0.0f), windupGuard(0.375f){};
     } PID[10];
 
 public:

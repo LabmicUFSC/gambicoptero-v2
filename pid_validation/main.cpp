@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	cout << "Hello World" << endl;
 	AeroQuad::_currentTime = 0.0f;
 
-	Pid pid(1.0f, 0.1000f, -0.40f);
+	Pid pid(1.0f, 0.1f, -0.4f);
 	Kinematics sensor(0.0f, 0.0f, 0.0f);
 
 	const float targetPosition = 10.0f;

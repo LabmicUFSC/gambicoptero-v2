@@ -24,8 +24,10 @@ float Pid::updatePid(float targetPosition, float currentPosition, int pidIDX)
 	float error = targetPosition - currentPosition;
 
 	PIDparameters->integratedError += error * deltaPIDTime;
-	PIDparameters->integratedError = AQMath::constrain(PIDparameters->integratedError, -PIDparameters->windupGuard, PIDparameters->windupGuard);
-	float dTerm = PIDparameters->D * (currentPosition - PIDparameters->lastPosition) / (deltaPIDTime/* * 100*/); // dT fix from Honk
+	// PIDparameters->integratedError = AQMath::constrain(PIDparameters->integratedError, -PIDparameters->windupGuard, PIDparameters->windupGuard);
+	float dTerm = PIDparameters->D * (currentPosition - PIDparameters->lastPosition)  / (deltaPIDTime /** 100*/); // dT fix from Honk
 	PIDparameters->lastPosition = currentPosition;
-	return (PIDparameters->P * error) + (PIDparameters->I * (PIDparameters->integratedError)) + dTerm;
+	float pid = (PIDparameters->P * error) + (PIDparameters->I * (PIDparameters->integratedError)) + dTerm;
+	// return AQMath::constrain(pid, -20.0f, 20.0f);
+	return pid;
 }
