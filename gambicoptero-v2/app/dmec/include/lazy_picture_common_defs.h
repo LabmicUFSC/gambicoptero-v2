@@ -1,0 +1,25 @@
+/*
+ * lazy_picture_common_defs.h
+ *
+ *  Created on: Mar 30, 2011
+ *      Author: mateus
+ */
+
+#ifndef LAZY_PICTURE_COMMON_DEFS_H_
+#define LAZY_PICTURE_COMMON_DEFS_H_
+
+
+#define __LAZY_PICTURE_PRECONDITIONS 1
+#define __LAZY_PICTURE_POSCONDITIONS 1
+
+#define __LAZY_PICTURE_GENERAL_TRACE  0 // (1 && ENABLE_TRACE)
+#define __LAZY_PICTURE_DETAILED_TRACE 0 // (1 && ENABLE_TRACE)
+#define __LAZY_PICTURE_OBSERVER_ENABLED 0
+#define __LAZY_PICTURE_DEBUG 0
+
+
+#define __LAZY_PICTURE_CRONO_DMA 0 && !PC
+#define __LAZY_PICTURE_DMA_COUNTER 0
+
+
+#endif /* LAZY_PICTURE_COMMON_DEFS_H_ */

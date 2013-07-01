@@ -1,0 +1,58 @@
+This application has the following dependencies:
+
+- Boost::Thread
+Get the boost from: http://www.boost.org/users/download/
+Follow these steps:
+1. Untar it to any location.
+2. Enter the boost directory.
+3. Configure it: ./bootstrap.sh --prefix=<full_path_to_boost_installation> --with-libraries=thread
+ - Ex.: ./bootstrap.sh --prefix=/usr --with-libraries=thread
+4. Build and install it: sudo ./b2 install
+5. Configure the Makefile entries at lines 11 and 15:
+BOOST_INC = -I<full_path_to_boost_installation>/include
+BOOST_LIB = -L<full_path_to_boost_installation>/lib
+Ex.:
+BOOST_INC = -I/usr/include
+BOOST_LIB = -L/usr/lib
+
+- LibSerial
+Get LibSerial v0.6.0rc1 from: http://sourceforge.net/projects/libserial/files/libserial/0.6.0rc1/
+Follow these steps:
+1. Untar it to any location.
+2. Enter the LibSerial directory.
+3. Configure it: ./configure --prefix=<full_path_to_libserial_installation>
+ - Ex.: ./configure --prefix=/usr
+4. Build it: make all
+ - There may be some problems here with python or ruby. That's ok, just ignore. The C++ environment was already build.
+5. Install it: sudo make install
+6. Configure the Makefile entries at lines 12 and 16:
+LIBSERIAL_INC = -I<full_path_to_libserial_installation>/include
+LIBSERIAL_LIB = -L<full_path_to_libserial_installation>/lib
+Ex.:
+LIBSERIAL_INC = -I/usr/include
+LIBSERIAL_LIB = -L/usr/lib
+
+- UbiGraph
+Get UbiGraph from: http://ubietylab.net/ubigraph/content/Downloads/index.php
+Follow these steps:
+1. Install system dependencies: libxmlrpc-c3, libxmlrpd-c3-dev, libglut3
+ - Ex.: At Ubuntu, sudo apt-get install libxmlrpc-c3 libxmlrpc-c3-dev, libglut3
+2. Untar it to any location.
+3. Enter the UbiGraph directory.
+4. Manually build it:
+ - cd examples/C
+ - gcc -c -o client.o client.c -I../../include/
+ - make libubigraphclient
+ - cd ../..
+5. Manualy install it:
+ - sudo cp include/UbigraphAPI.h <full_path_to_ubigraph_installation>/include
+ - sudo cp examples/C/libubigraphclient.a <full_path_to_ubigraph_installation>/lib
+ - sudo cp bin/ubigraph_server <full_path_to_ubigraph_installation>/bin/
+6. Configure the Makefile entries at lines 12 and 16:
+UBIGRAPH_INC = -I<full_path_to_ubigraph_installation>/include
+UBIGRAPH_LIB = -L<full_path_to_ubigraph_installation>/lib
+Ex.:
+UBIGRAPH_INC = -I/usr/include
+UBIGRAPH_LIB = -L/usr/include
+
+

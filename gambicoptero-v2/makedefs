@@ -1,0 +1,426 @@
+# EPOS Makefile Definitions
+
+# This work is licensed under the EPOS Software License v1.0.
+# A copy of this license is available at the EPOS system source tree root.
+# A copy of this license is also available online at:
+# http://epos.lisha.ufsc.br/EPOS+Software+License+v1.0
+# Note that EPOS Software License applies to both source code and executables.
+
+# Supported software architectures
+MODE_KERNEL     := kernel
+MODE_BUILTIN    := builtin
+MODE_LIBRARY    := library
+
+# Supported hardware architectures
+ARCH_IA32       := ia32
+ARCH_AVR8       := avr8
+ARCH_PPC32      := ppc32
+ARCH_MIPS32     := mips32
+ARCH_ARM7       := arm7
+
+# Supported machines
+MACH_PC         := pc
+MACH_ATMEGA16   := atmega16
+MACH_ATMEGA128  := atmega128
+MACH_ATMEGA1281 := atmega1281
+MACH_AT90CAN128 := at90can128
+MACH_ML310      := ml310
+MACH_PLASMA     := plasma
+MACH_AXI4LITE	:= axi4lite
+MACH_MC13224V   := mc13224v
+MACH_INTEGRATOR := integratorcp
+
+# System configuration
+MODE            := $(MODE_LIBRARY)
+ifndef ARCH
+ARCH            := $(ARCH_IA32)
+endif
+ifndef MACH
+MACH            := $(MACH_PC)
+endif
+
+GDB_DEBUG := 0
+
+# do not modify anything bellow this line
+###############################################################################
+# Path to EPOS root directory 
+EPOS := $(abspath $(dir $(filter %makedefs, $(MAKEFILE_LIST))))
+
+# Compiler prefixes
+$(ARCH_IA32)_COMP_PREFIX   := /usr/local/ia32/gcc/bin/ia32-
+$(ARCH_AVR8)_COMP_PREFIX   := /usr/local/avr/gcc/bin/avr-
+$(ARCH_PPC32)_COMP_PREFIX  := /usr/local/ppc32/gcc/bin/ppc32-
+$(ARCH_MIPS32)_COMP_PREFIX := /usr/local/mips/gcc/bin/mips-
+$(ARCH_ARM7)_COMP_PREFIX   := /usr/local/arm/gcc/bin/arm-
+COMP_PREFIX                := $($(ARCH)_COMP_PREFIX)
+
+# Boot memory maps
+$(MACH_PC)_MEM_BASE              := 0x00000000
+$(MACH_PC)_MEM_TOP               := 0x02000000
+$(MACH_PC)_BOOT_ADDR             := 0x00007c00
+$(MACH_PC)_SETUP_ADDR            := 0x00100000
+$(MACH_PC)_INIT_ADDR             := 0x00200000
+$(MACH_PC)_SYS_CODE_ADDR         := 0x1f700000
+$(MACH_PC)_SYS_DATA_ADDR         := 0x1f740000
+$(MACH_PC)_APP_CODE_ADDR         := 0x00008000
+$(MACH_PC)_APP_DATA_ADDR         := 0x00400000
+$(MACH_PC)_BOOT_LENGTH_MIN       := 128
+$(MACH_PC)_BOOT_LENGTH_MAX       := 512
+$(MACH_ATMEGA16)_MEM_BASE        := 0x00800060
+$(MACH_ATMEGA16)_MEM_TOP         := 0x00800460
+$(MACH_ATMEGA16)_BOOT_ADDR       := 0x00000000
+$(MACH_ATMEGA16)_SETUP_ADDR      := 0x00000000
+$(MACH_ATMEGA16)_INIT_ADDR       := 0x00000000
+$(MACH_ATMEGA16)_SYS_CODE_ADDR   := 0x00000000
+$(MACH_ATMEGA16)_SYS_DATA_ADDR   := 0x00800110
+$(MACH_ATMEGA16)_APP_CODE_ADDR   := 0x00000000
+$(MACH_ATMEGA16)_APP_DATA_ADDR   := 0x00800110
+$(MACH_ATMEGA16)_BOOT_LENGTH_MIN := 128
+$(MACH_ATMEGA16)_BOOT_LENGTH_MAX := 512
+$(MACH_ATMEGA128)_MEM_BASE         := 0x00800100
+$(MACH_ATMEGA128)_MEM_TOP          := 0x00801100
+$(MACH_ATMEGA128)_BOOT_ADDR        := 0x00000000
+$(MACH_ATMEGA128)_SETUP_ADDR       := 0x00000000
+$(MACH_ATMEGA128)_INIT_ADDR        := 0x00000000
+$(MACH_ATMEGA128)_SYS_CODE_ADDR    := 0x00000000
+$(MACH_ATMEGA128)_SYS_DATA_ADDR    := 0x00800100
+$(MACH_ATMEGA128)_APP_CODE_ADDR    := 0x00000000
+$(MACH_ATMEGA128)_APP_DATA_ADDR    := 0x00800100
+$(MACH_ATMEGA128)_BOOT_LENGTH_MIN  := 128
+$(MACH_ATMEGA128)_BOOT_LENGTH_MAX  := 512
+$(MACH_ATMEGA1281)_MEM_BASE          := 0x00800200
+$(MACH_ATMEGA1281)_MEM_TOP           := 0x00802200
+$(MACH_ATMEGA1281)_BOOT_ADDR         := 0x00000000
+$(MACH_ATMEGA1281)_SETUP_ADDR        := 0x00000000
+$(MACH_ATMEGA1281)_INIT_ADDR         := 0x00000000
+$(MACH_ATMEGA1281)_SYS_CODE_ADDR     := 0x00000000
+$(MACH_ATMEGA1281)_SYS_DATA_ADDR     := 0x00800250
+$(MACH_ATMEGA1281)_APP_CODE_ADDR     := 0x00000000
+$(MACH_ATMEGA1281)_APP_DATA_ADDR     := 0x00800250
+$(MACH_ATMEGA1281)_BOOT_LENGTH_MIN   := 128
+$(MACH_ATMEGA1281)_BOOT_LENGTH_MAX   := 512
+$(MACH_AT90CAN128)_MEM_BASE          := 0x00800100
+$(MACH_AT90CAN128)_MEM_TOP           := 0x00801100
+$(MACH_AT90CAN128)_BOOT_ADDR         := 0x00000000
+$(MACH_AT90CAN128)_SETUP_ADDR        := 0x00000000
+$(MACH_AT90CAN128)_INIT_ADDR         := 0x00000000
+$(MACH_AT90CAN128)_SYS_CODE_ADDR     := 0x00000000
+$(MACH_AT90CAN128)_SYS_DATA_ADDR     := 0x00800100
+$(MACH_AT90CAN128)_APP_CODE_ADDR     := 0x00000000
+$(MACH_AT90CAN128)_APP_DATA_ADDR     := 0x00800100
+$(MACH_AT90CAN128)_BOOT_LENGTH_MIN   := 128
+$(MACH_AT90CAN128)_BOOT_LENGTH_MAX   := 512
+$(MACH_ML310)_MEM_BASE               := 0x00000000
+$(MACH_ML310)_MEM_TOP                := 0x04000000
+$(MACH_ML310)_BOOT_ADDR              := 0x00000000
+$(MACH_ML310)_SETUP_ADDR             := 0x00600000
+$(MACH_ML310)_INIT_ADDR              := 0x00000000
+$(MACH_ML310)_SYS_CODE_ADDR          := 0x03800000
+$(MACH_ML310)_SYS_DATA_ADDR          := 0x03C00000
+$(MACH_ML310)_APP_CODE_ADDR          := 0x00000000
+$(MACH_ML310)_APP_DATA_ADDR          := 0x00200000
+$(MACH_ML310)_BOOT_LENGTH_MIN        := 2048
+$(MACH_ML310)_BOOT_LENGTH_MAX        := 2048
+$(MACH_PLASMA)_MEM_BASE              := 0x10000010
+$(MACH_PLASMA)_MEM_TOP               := 0x10100000
+$(MACH_PLASMA)_BOOT_ADDR             := 0x00000000
+$(MACH_PLASMA)_SETUP_ADDR            := 0x00000000
+$(MACH_PLASMA)_INIT_ADDR             := 0x00000000
+$(MACH_PLASMA)_SYS_DATA_ADDR         := 0x100A2000
+$(MACH_PLASMA)_SYS_CODE_ADDR         := 0x100A0000
+$(MACH_PLASMA)_APP_DATA_ADDR         := 0x10080000
+$(MACH_PLASMA)_APP_CODE_ADDR         := 0x10000010
+$(MACH_PLASMA)_BOOT_LENGTH_MIN       := 128
+$(MACH_PLASMA)_BOOT_LENGTH_MAX       := 512
+$(MACH_AXI4LITE)_MEM_BASE             := 0x10000010
+$(MACH_AXI4LITE)_MEM_TOP              := 0x10100000
+$(MACH_AXI4LITE)_BOOT_ADDR            := 0x00000000
+$(MACH_AXI4LITE)_SETUP_ADDR           := 0x00000000
+$(MACH_AXI4LITE)_INIT_ADDR            := 0x00000000
+$(MACH_AXI4LITE)_SYS_DATA_ADDR        := 0x100A2000
+$(MACH_AXI4LITE)_SYS_CODE_ADDR        := 0x100A0000
+$(MACH_AXI4LITE)_APP_DATA_ADDR        := 0x10080000
+$(MACH_AXI4LITE)_APP_CODE_ADDR        := 0x10000010
+$(MACH_AXI4LITE)_BOOT_LENGTH_MIN      := 128
+$(MACH_AXI4LITE)_BOOT_LENGTH_MAX      := 512
+$(MACH_MC13224V)_MEM_BASE            := 0x00400000
+$(MACH_MC13224V)_MEM_TOP             := 0x00418000
+$(MACH_MC13224V)_BOOT_ADDR           := 0x00000000
+$(MACH_MC13224V)_SETUP_ADDR          := 0x00000000
+$(MACH_MC13224V)_INIT_ADDR           := 0x00000000
+$(MACH_MC13224V)_SYS_DATA_ADDR       := 0x00000000
+$(MACH_MC13224V)_SYS_CODE_ADDR       := 0x00000000
+$(MACH_MC13224V)_APP_DATA_ADDR       := 0x00411000
+$(MACH_MC13224V)_APP_CODE_ADDR       := 0x00400000
+$(MACH_MC13224V)_BOOT_LENGTH_MIN     := 128
+$(MACH_MC13224V)_BOOT_LENGTH_MAX     := 512
+$(MACH_INTEGRATOR)_MEM_BASE          := 0x00000000
+$(MACH_INTEGRATOR)_MEM_TOP           := 0x01FFFFFF
+$(MACH_INTEGRATOR)_BOOT_ADDR         := 0x00000000
+$(MACH_INTEGRATOR)_SETUP_ADDR        := 0x00000000
+$(MACH_INTEGRATOR)_INIT_ADDR         := 0x00000000
+$(MACH_INTEGRATOR)_SYS_DATA_ADDR     := 0x00000000
+$(MACH_INTEGRATOR)_SYS_CODE_ADDR     := 0x00000000
+$(MACH_INTEGRATOR)_APP_DATA_ADDR     := 0x01000000
+$(MACH_INTEGRATOR)_APP_CODE_ADDR     := 0x00000000
+$(MACH_INTEGRATOR)_BOOT_LENGTH_MIN   := 128
+$(MACH_INTEGRATOR)_BOOT_LENGTH_MAX   := 512
+
+BOOT_ADDR       = $($(MACH)_BOOT_ADDR)
+SETUP_ADDR      = $($(MACH)_SETUP_ADDR)
+INIT_ADDR       = $($(MACH)_INIT_ADDR)
+SYS_CODE_ADDR   = $($(MACH)_SYS_CODE_ADDR)
+SYS_DATA_ADDR   = $($(MACH)_SYS_DATA_ADDR)
+APP_CODE_ADDR   = $($(MACH)_APP_CODE_ADDR)
+APP_DATA_ADDR   = $($(MACH)_APP_DATA_ADDR)
+MEM_BASE        = $($(MACH)_MEM_BASE)
+MEM_TOP         = $($(MACH)_MEM_TOP)
+BOOT_LENGTH_MIN = $($(MACH)_BOOT_LENGTH_MIN)
+BOOT_LENGTH_MAX = $($(MACH)_BOOT_LENGTH_MAX)
+
+#Machine specifics
+$(MACH_PC)_CC_FLAGS   := -Wa,--32
+$(MACH_PC)_AS_FLAGS   := --32
+$(MACH_PC)_LD_FLAGS   := 
+$(MACH_PC)_CODE_NAME  := .init
+$(MACH_PC)_DATA_NAME  := .ctors
+$(MACH_PC)_EMULATOR   := qemu -nographic -no-reboot -net nic,model=pcnet -net user -net socket,mcast=224.0.0.1:12000 -fda
+$(MACH_ATMEGA16)_CC_FLAGS    := -mmcu=atmega16 -Wno-inline
+$(MACH_ATMEGA16)_AS_FLAGS    := -mmcu=atmega16
+$(MACH_ATMEGA16)_LD_FLAGS    := -m avr5 
+$(MACH_ATMEGA16)_CODE_NAME   := .hash
+$(MACH_ATMEGA16)_DATA_NAME   := .data
+$(MACH_ATMEGA128)_CC_FLAGS   := -mmcu=atmega128 -Wno-inline
+$(MACH_ATMEGA128)_AS_FLAGS   := -mmcu=atmega128
+$(MACH_ATMEGA128)_LD_FLAGS   := -m avr5
+$(MACH_ATMEGA128)_CODE_NAME  := .hash
+$(MACH_ATMEGA128)_DATA_NAME  := .data
+$(MACH_ATMEGA1281)_CC_FLAGS  := -mmcu=atmega1281 -Wno-inline
+$(MACH_ATMEGA1281)_AS_FLAGS  := -mmcu=atmega1281
+$(MACH_ATMEGA1281)_LD_FLAGS  := -m avr5
+$(MACH_ATMEGA1281)_CODE_NAME := .hash
+$(MACH_ATMEGA1281)_DATA_NAME := .data
+$(MACH_AT90CAN128)_CC_FLAGS  := -mmcu=at90can128 -Wno-inline
+$(MACH_AT90CAN128)_AS_FLAGS  := -mmcu=at90can128
+$(MACH_AT90CAN128)_LD_FLAGS  := -m avr5
+$(MACH_AT90CAN128)_CODE_NAME := .hash
+$(MACH_AT90CAN128)_DATA_NAME := .data
+$(MACH_ML310)_CC_FLAGS       := -mcpu=405 -Wa,-m405 -mstrict-align
+$(MACH_ML310)_AS_FLAGS       :=
+$(MACH_ML310)_LD_FLAGS       :=
+$(MACH_ML310)_CODE_NAME      := .hash
+$(MACH_ML310)_DATA_NAME      := .tdata
+$(MACH_PLASMA)_CC_FLAGS      := -march=mips1 -EB -msoft-float -mno-check-zero-division
+$(MACH_PLASMA)_AS_FLAGS      :=
+$(MACH_PLASMA)_LD_FLAGS      :=
+$(MACH_PLASMA)_CODE_NAME     := .hash
+$(MACH_PLASMA)_DATA_NAME     := .tdata
+$(MACH_AXI4LITE)_CC_FLAGS     := -march=mips1 -EB -msoft-float -mno-check-zero-division
+$(MACH_AXI4LITE)_AS_FLAGS     :=
+$(MACH_AXI4LITE)_LD_FLAGS     :=
+$(MACH_AXI4LITE)_CODE_NAME    := .hash
+$(MACH_AXI4LITE)_DATA_NAME    := .tdata
+$(MACH_MC13224V)_CC_FLAGS    := -mcpu=arm7tdmi-s -D__mc13224v__  -Wall -mthumb-interwork
+$(MACH_MC13224V)_AS_FLAGS    := -mcpu=arm7tdmi-s --defsym mc13224v=1 -mthumb-interwork
+$(MACH_MC13224V)_LD_FLAGS    := 
+$(MACH_MC13224V)_CODE_NAME   := .init
+$(MACH_MC13224V)_DATA_NAME   := .ctors
+$(MACH_INTEGRATOR)_CC_FLAGS  := -mcpu=arm926ej-s -mfpu=fpa 
+$(MACH_INTEGRATOR)_AS_FLAGS  := -mcpu=arm926ej-s -mfpu=fpa 
+$(MACH_INTEGRATOR)_LD_FLAGS  := 
+$(MACH_INTEGRATOR)_CODE_NAME := .init
+$(MACH_INTEGRATOR)_DATA_NAME := .ctors
+$(MACH_INTEGRATOR)_EMULATOR  := qemu-system-arm -no-reboot -nographic -m 128 -kernel
+
+MACH_CC_FLAGS                := $($(MACH)_CC_FLAGS)
+MACH_AS_FLAGS                := $($(MACH)_AS_FLAGS)
+MACH_LD_FLAGS                := $($(MACH)_LD_FLAGS)
+MACH_CODE_NAME               := $($(MACH)_CODE_NAME)
+MACH_DATA_NAME               := $($(MACH)_DATA_NAME)
+
+ifeq ($(GDB_DEBUG), 1)
+MACH_CC_FLAGS                := $(MACH_CC_FLAGS) -g
+MACH_AS_FLAGS                := $(MACH_AS_FLAGS) -g
+endif
+
+# Architecture specifics
+$(ARCH_IA32)_WORD_SIZE   := 32
+$(ARCH_IA32)_ENDIANESS   := little
+$(ARCH_IA32)_CLOCK       := 2000000000
+$(ARCH_AVR8)_WORD_SIZE   := 8
+$(ARCH_AVR8)_ENDIANESS   := little
+$(ARCH_AVR8)_CLOCK       := 4000000
+$(ARCH_PPC32)_WORD_SIZE  := 32
+$(ARCH_PPC32)_ENDIANESS  := big
+$(ARCH_PPC32)_CLOCK      := 300000000
+$(ARCH_MIPS32)_WORD_SIZE := 32
+$(ARCH_MIPS32)_ENDIANESS := big
+$(ARCH_MIPS32)_CLOCK     := 25000000
+$(ARCH_ARM7)_WORD_SIZE   := 32
+$(ARCH_ARM7)_ENDIANESS   := little
+$(ARCH_ARM7)_CLOCK       := 38000000
+ARCH_WORD_SIZE           := $($(ARCH)_WORD_SIZE)
+ARCH_ENDIANESS           := $($(ARCH)_ENDIANESS)
+ARCH_CLOCK               := $($(ARCH)_CLOCK)
+
+# Paths, prefixes and suffixes
+TOP       = $(EPOS)
+INCLUDE   = $(TOP)/include
+SRC       = $(TOP)/src
+APP       = $(TOP)/app
+BIN       = $(TOP)/bin
+LIB       = $(TOP)/lib
+IMG       = $(TOP)/img
+ETC       = $(TOP)/etc
+DOC       = $(TOP)/doc
+LARCHNAME = arch
+LMACHNAME = mach
+LSYSNAME  = system
+LINITNAME = init
+LUTILNAME = util
+LIBARCH   = $(LIB)/lib$(LARCHNAME)_$(ARCH).a
+LIBMACH   = $(LIB)/lib$(LMACHNAME)_$(ARCH).a
+LIBSYS    = $(LIB)/lib$(LSYSNAME)_$(ARCH).a
+LIBINIT   = $(LIB)/lib$(LINITNAME)_$(ARCH).a
+LIBUTIL   = $(LIB)/lib$(LUTILNAME)_$(ARCH).a
+LARCH     = $(LARCHNAME)_$(ARCH)
+LMACH     = $(LMACHNAME)_$(ARCH)
+LSYS      = $(LSYSNAME)_$(ARCH)
+LINIT     = $(LINITNAME)_$(ARCH)
+LUTIL     = $(LUTILNAME)_$(ARCH)
+ifndef APPLICATION
+APPLICATION = $(MACH)_app
+endif
+
+# Tools to adapt linux files
+SED = sed
+UNAME = $(shell uname)
+ifeq ($(UNAME), Darwin)
+  SED_I = -i ''
+else
+  SED_I = -i 
+endif
+
+# Tools and flags to compile system tools
+TCC      = gcc -ansi -c
+TCCFLAGS = -m32 -Wall -O2 -I$(INCLUDE)
+
+TCXX      = g++ -c -ansi -fno-exceptions
+TCXXFLAGS = -m32 -Wall -O2 -I$(INCLUDE)
+
+TCPP      = gcc -E 
+TCPPFLAGS = -I$(INCLUDE)
+
+TLD      = gcc
+TLDFLAGS = -m32
+
+# Tools and flags to compile applications
+ACC  = $(BIN)/eposcc $(MACH_CC_FLAGS) -c -ansi -O2
+ACXX = $(BIN)/eposcc $(MACH_CC_FLAGS) -c -ansi -O2
+AF77 = $(BIN)/eposcc $(MACH_CC_FLAGS) -c -ansi -O2
+ALD  = $(BIN)/eposcc --$(MODE) $(MACH_LD_FLAGS)
+ALDFLAGS = --gc-sections 
+
+# Tools and flags to compile the system
+AR      = $(COMP_PREFIX)ar
+ARFLAGS = rcs
+
+AS      = $(COMP_PREFIX)as
+ASFLAGS = $(MACH_AS_FLAGS)
+
+CC      = $(COMP_PREFIX)gcc -ansi -c
+CCFLAGS = $(MACH_CC_FLAGS) -O2 -nostdinc -Wall -I$(INCLUDE)
+CCLIB   = `$(CC) $(MACH_CC_FLAGS) -print-file-name=`
+
+CPP      = $(COMP_PREFIX)gcc -E
+CPPFLAGS = $(MACH_CC_FLAGS) -I$(INCLUDE)
+
+CXX      = $(COMP_PREFIX)g++ -c --no-exceptions --no-rtti --no-use-cxa-atexit
+CXXFLAGS = $(MACH_CC_FLAGS) -O2 -nostdinc -Wall -fdata-sections -ffunction-sections -I$(INCLUDE)
+
+LD       = $(COMP_PREFIX)ld
+LDFLAGS  = $(MACH_LD_FLAGS) -L$(LIB) -Bstatic
+
+OBJCOPY          = $(COMP_PREFIX)objcopy
+OBJCOPYFLAGS     =
+
+OBJDUMP          = $(COMP_PREFIX)objdump
+OBJDUMPFLAGS     =
+
+MAKE         = make
+MAKEALL      = make all
+MAKEINSTALL  = make install
+MAKECLEAN    = make -i clean
+MAKETEST     = make test
+MAKEFLAGS    = --no-builtin-rules --print-directory
+
+MKBI     = $(BIN)/eposmkbi $(EPOS)
+
+DD       = dd
+
+STRIP    = $(COMP_PREFIX)strip -R .note -R .comment
+
+INSTALL  = install
+
+SHELL    = bash
+
+CLEAN    = rm -f
+CLEANDIR = rm -rf
+
+TOUCH    = touch
+
+TEE      = tee
+
+#QEMU = qemu -nographic -smp 8 -no-reboot -net none -fda
+EMULATOR = $($(MACH)_EMULATOR) 
+
+# Rules
+lib%.o: lib%.cc
+		$(CXX) $(CXXFLAGS) $<
+
+%_test.o: %_test.cc
+		$(ACXX) $(ACXXFLAGS) $<
+
+%_test.o: %_test.c
+		$(ACC) $(ACCFLAGS) $<
+
+%_test: %_test.o
+		$(ALD) $(ALDFLAGS) $< -o $@
+		$(STRIP) $@ -o $(IMG)/$@
+
+%.img: %
+		$(MKBI) $@ $<
+
+%.out: %.img
+		$(EMULATOR) $< | $(TEE) $@
+
+%.o: %.cc
+		$(CXX) $(CXXFLAGS) $<
+
+%.o: %.c
+		$(CC) $(CCFLAGS) $<
+
+%.s: %.S
+		$(CPP) $(CPPFLAGS) $< -o $@
+
+%.o: %.s
+		$(AS) $(ASFLAGS) $< -o $@
+
+%: %.cc
+		$(CXX) $(CXXFLAGS) $<
+		$(LD) $(LDFLAGS) %@.o -o $@
+
+%: %.c
+		$(CC) $(CCFLAGS) $<
+		$(LD) $(LDFLAGS) %@.o -o $@
+
+(%.o): %.o
+		$(AR) $(ARFLAGS) $@ $^
+
+%.key: %.cc
+		$(EPOSANL) $< 
+
+%.key: %.c
+		$(EPOSANL) $<
+
+.PRECIOUS: %.o
