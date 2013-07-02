@@ -181,6 +181,13 @@ bool MC13224V_I2C::get_byte(unsigned char * b, bool set_nack)
     return success;
 }
 
+
+bool MC13224V_I2C::write_register(unsigned char dst, unsigned char reg, unsigned char byte) {
+    unsigned char buf[1];
+    buf[0] = byte;
+    return this->write_register(dst, reg, 1, buf);
+}
+
 bool MC13224V_I2C::write_register(
         unsigned char dst,
         unsigned char reg,

@@ -101,6 +101,11 @@ const int SAMPLECOUNT;
     void disable_y() {}
     bool data_ready_y() { return true; }
 
+    int get_z() { return 0; }
+    bool enable_z() { return true; }
+    void disable_z() {}
+    bool data_ready_z() { return true; }
+    
     int sample_z() {
         _sample_z = format(DATAZ0, DATAZ1);
         return _sample_z;

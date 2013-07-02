@@ -21,10 +21,10 @@
 //============================================================================
 // ARCHITECTURE AND MACHINE SELECTION
 //============================================================================
-#define ARCH ia32
+#define ARCH arm7
 #define __ARCH_TRAITS_H	 __HEADER_ARCH(traits)
 
-#define MACH pc
+#define MACH mc13224v
 #define __MACH_TRAITS_H	 __HEADER_MACH(traits)
 
 //============================================================================

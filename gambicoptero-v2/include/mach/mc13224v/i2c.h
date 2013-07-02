@@ -67,6 +67,7 @@ public:
     bool busy();
     void set_timeout(TSC::Time_Stamp tm);
 
+    bool write_register(unsigned char dst, unsigned char reg, unsigned char byte);
     bool write_register(unsigned char dst, unsigned char reg, int len, unsigned char * buff);
     bool read_register(unsigned char dst, unsigned char reg, int len, unsigned char * buff);
 

@@ -33,10 +33,10 @@ MACH_INTEGRATOR := integratorcp
 # System configuration
 MODE            := $(MODE_LIBRARY)
 ifndef ARCH
-ARCH            := $(ARCH_IA32)
+ARCH            := $(ARCH_ARM7)
 endif
 ifndef MACH
-MACH            := $(MACH_PC)
+MACH            := $(MACH_MC13224V)
 endif
 
 GDB_DEBUG := 0
@@ -51,7 +51,7 @@ $(ARCH_IA32)_COMP_PREFIX   := /usr/local/ia32/gcc/bin/ia32-
 $(ARCH_AVR8)_COMP_PREFIX   := /usr/local/avr/gcc/bin/avr-
 $(ARCH_PPC32)_COMP_PREFIX  := /usr/local/ppc32/gcc/bin/ppc32-
 $(ARCH_MIPS32)_COMP_PREFIX := /usr/local/mips/gcc/bin/mips-
-$(ARCH_ARM7)_COMP_PREFIX   := /usr/local/arm/gcc/bin/arm-
+$(ARCH_ARM7)_COMP_PREFIX   := /home/user/Downloads/arm-gcc-4.4.4/bin/arm-
 COMP_PREFIX                := $($(ARCH)_COMP_PREFIX)
 
 # Boot memory maps

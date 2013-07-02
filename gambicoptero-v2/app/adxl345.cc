@@ -6,12 +6,13 @@
 // http://epos.lisha.ufsc.br/EPOS+Software+License+v1.0
 // Note that EPOS Software License applies to both source code and executables.
 #include <alarm.h>
-
+#include <mach/mc13224v/adxl345.h>
 __USING_SYS
+
 
 int main() {
 	OStream cout;
-	ADXL345 accel;
+	MC13224V_ADXL345 accel;
 	int x, y, z;
 
 	cout << "ADXL345 accelerometer test\n";
