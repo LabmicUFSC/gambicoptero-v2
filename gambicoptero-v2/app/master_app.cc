@@ -1,34 +1,47 @@
+__USING_SYS
+
 #include <machine.h>
 #include <alarm.h>
 #include <sensor.h>
 #include <battery.h>
 #include <mach/mc13224v/adxl345_i2c.h>
 #include <periodic_thread.h>
+#include <utility/math.h>
+#include <AeroQuad/AeroQuad/AeroQuad.h>
+#include <AeroQuad/AeroQuad/FlightControlProcessor.h>
+#include <AeroQuad/Libraries/AQ_Gyroscope/Gyroscope_ITG3200.h>
+#include <AeroQuad/Libraries/AQ_Accelerometer/Accelerometer_ADXL345.h>
 
-__USING_SYS
+#include <AeroQuad/Libraries/AQ_Defines/GlobalDefined.h>
+#include <AeroQuad/Libraries/AQ_Defines/SensorStatus.h>
+#include <AeroQuad/Libraries/AQ_Math/FourtOrderFilter.h>
+#include <AeroQuad/Libraries/AQ_Kinematics/Kinematics_CHR6DM.h>
 
 OStream cout;
 
-int periodic_func() {
-    ADXL345_I2C accel;
+int task_100hz() {
 
-    accel.initAccel();
-    
-    short x,y,z;
-    for(;;) {
-        accel.measureAccel();
-        x = accel.sample_x();
-        y = accel.sample_y();
-        z = accel.sample_z();
-        cout << "X: " << (float)(x*0.0078) 
-            << "\tY: " << (float)(y*0.0078) 
-            << "\tZ: " << (float)(z*0.0078) << "\n";
-        Periodic_Thread::wait_next();
-    }
+  for(;;) {
+      G_Dt = (currentTime - hundredHZpreviousTime) / 1000000.0;
+      hundredHZpreviousTime = currentTime;
+      
+      evaluateGyroRate();
+      evaluateMetersPerSec();
+
+      for (int axis = XAXIS; axis <= ZAXIS; axis++) {
+        filteredAccel[axis] = computeFourthOrder(meterPerSecSec[axis], &fourthOrder[axis]);
+      }
+        
+      calculateKinematics(gyroRate[XAXIS], gyroRate[YAXIS], gyroRate[ZAXIS], filteredAccel[XAXIS], filteredAccel[YAXIS], filteredAccel[ZAXIS], G_Dt);
+      
+      processFlightControl();
+
+      Periodic_Thread::wait_next();
+  }
 }
 
 int main() {
-    Periodic_Thread thread(&periodic_func, 10000);
+    Periodic_Thread thread(&task_100hz, 10000);
     thread.join();
     for(;;);
 
