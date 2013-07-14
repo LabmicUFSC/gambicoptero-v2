@@ -23,6 +23,7 @@
 
 #include "Gyroscope.h"
 #include <AeroQuad/Libraries/AQ_Math/AQMath.h>
+#include <mach/mc13224v/itg3200_i2c.h>
   
 #ifdef ITG3200_ADDRESS_ALTERNATE
   #define ITG3200_ADDRESS					0x68
@@ -47,30 +48,22 @@
 
 
 float gyroTempBias[3] = {0.0,0.0,0.0};
-void measureSpecificGyroADC(int *gyroADC);
-void measureSpecificGyroSum();
+void measureSpecificGyroADC(int *gyroADC, short sample_x, short sample_y, short sample_z);
+void measureSpecificGyroSum(short sample_x, short sample_y, short sample_z);
 void evaluateSpecificGyroRate(int *gyroADC);
 
+ITG3200_I2C *gyro;
+
 void initializeGyro() {
-/*
-  if ((readWhoI2C(ITG3200_ADDRESS) & ITG3200_IDENTITY_MASK) == ITG3200_IDENTITY) {
-	vehicleState |= GYRO_DETECTED;
-  }
-	
-  gyroScaleFactor = radians(1.0 / 14.375);  //  ITG3200 14.375 LSBs per °/sec
-  updateRegisterI2C(ITG3200_ADDRESS, ITG3200_RESET_ADDRESS, ITG3200_RESET_VALUE); // send a reset to the device
-  updateRegisterI2C(ITG3200_ADDRESS, ITG3200_LOW_PASS_FILTER_ADDR, ITG3200_LOW_PASS_FILTER_VALUE); // 10Hz low pass filter
-  updateRegisterI2C(ITG3200_ADDRESS, ITG3200_RESET_ADDRESS, ITG3200_OSCILLATOR_VALUE); // use internal oscillator 
-*/
+  gyro = new ITG3200_I2C();
+  gyro->initGyro();
 }
 
 void measureGyro() {
-/*
-  sendByteI2C(ITG3200_ADDRESS, ITG3200_MEMORY_ADDRESS);
-  Wire.requestFrom(ITG3200_ADDRESS, ITG3200_BUFFER_SIZE);
+  gyro->measureGyro();
 
   int gyroADC[3];
-  measureSpecificGyroADC(gyroADC);
+  measureSpecificGyroADC(gyroADC, gyro->sample_x(), gyro->sample_y(), gyro->sample_z());
   
   for (byte axis = 0; axis <= ZAXIS; axis++) {
 	gyroRate[axis] = gyroADC[axis] * gyroScaleFactor;
@@ -82,18 +75,16 @@ void measureGyro() {
     gyroHeading += gyroRate[ZAXIS] * ((currentTime - gyroLastMesuredTime) / 1000000.0);
   }
   gyroLastMesuredTime = currentTime;
-*/
+
 }
 
 void measureGyroSum() {
-/*
-  sendByteI2C(ITG3200_ADDRESS, ITG3200_MEMORY_ADDRESS);
-  Wire.requestFrom(ITG3200_ADDRESS, ITG3200_BUFFER_SIZE);
-  
-  measureSpecificGyroSum();
+  gyro->measureGyro();
+
+  measureSpecificGyroSum(gyro->sample_x(), gyro->sample_y(), gyro->sample_z());
   
   gyroSampleCount++;
-*/
+
 }
 
 void evaluateGyroRate() {
@@ -109,7 +100,7 @@ void evaluateGyroRate() {
   }
   
   // Measure gyro heading
-  //long int currentTime = micros();
+  long int currentTime = micros();
   if (gyroRate[ZAXIS] > radians(1.0) || gyroRate[ZAXIS] < radians(-1.0)) {
     gyroHeading += gyroRate[ZAXIS] * ((currentTime - gyroLastMesuredTime) / 1000000.0);
   }

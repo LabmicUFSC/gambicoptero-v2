@@ -26,20 +26,18 @@
 #include <AeroQuad/Libraries/AQ_Defines/SensorsStatus.h>
 #include <AeroQuad/Libraries/AQ_Gyroscope/Gyroscope_ITG3200Common.h>
 
-void measureSpecificGyroADC(int *gyroADC) {
+void measureSpecificGyroADC(int *gyroADC, short sample_x, short sample_y, short sample_z) {
 
-/*  gyroADC[XAXIS] = readShortI2C()  - gyroZero[XAXIS];
-  gyroADC[YAXIS] = gyroZero[YAXIS] - readShortI2C();
-  gyroADC[ZAXIS] = gyroZero[ZAXIS] - readShortI2C();
-*/
+  gyroADC[XAXIS] = sample_x  - gyroZero[XAXIS];
+  gyroADC[YAXIS] = gyroZero[YAXIS] - sample_y;
+  gyroADC[ZAXIS] = gyroZero[ZAXIS] - sample_z;
+
 }
 
-void measureSpecificGyroSum() {
-/*
-  for (byte axis = XAXIS; axis <= ZAXIS; axis++) {
-    gyroSample[axis] += readShortI2C();
-  }
-*/
+void measureSpecificGyroSum(short sample_x, short sample_y, short sample_z) {
+  gyroSample[XAXIS] += sample_x;
+  gyroSample[YAXIS] += sample_y;
+  gyroSample[ZAXIS] += sample_z;
 }
 
 void evaluateSpecificGyroRate(int *gyroADC) {
@@ -52,26 +50,28 @@ void evaluateSpecificGyroRate(int *gyroADC) {
 bool calibrateGyro() {
   //Finds gyro drift.
   //Returns false if during calibration there was movement of board. 
-/*
-  int findZero[FINDZERO];
+
+  int findZero[3][FINDZERO];
   int diff = 0;
 
-  for (byte axis = 0; axis < 3; axis++) {
-    for (int i=0; i<FINDZERO; i++) {
-      sendByteI2C(ITG3200_ADDRESS, (axis * 2) + ITG3200_MEMORY_ADDRESS);
-      findZero[i] = readShortI2C(ITG3200_ADDRESS);
-      delay(10);
-    }
-
-    int tmp = findMedianIntWithDiff(findZero, FINDZERO, &diff);
-	if (diff <= GYRO_CALIBRATION_TRESHOLD) { // 4 = 0.27826087 degrees during 49*10ms measurements (490ms). 0.57deg/s difference between first and last.
-	  gyroZero[axis] = tmp;
-	} 
-	else {
-		return false; //Calibration failed.
-	}
+  for (int i=0; i<FINDZERO; i++) {
+    gyro->measureGyro();
+    findZero[XAXIS][i] = gyro->sample_x();
+    findZero[YAXIS][i] = gyro->sample_y();
+    findZero[ZAXIS][i] = gyro->sample_z();
+    Alarm::delay(10000);
   }
-*/
+
+  for(int i = XAXIS; i < ZAXIS; i++) {
+    int tmp = findMedianIntWithDiff(findZero[i], FINDZERO, &diff);
+    if (diff <= GYRO_CALIBRATION_TRESHOLD) { // 4 = 0.27826087 degrees during 49*10ms measurements (490ms). 0.57deg/s difference between first and last.
+      gyroZero[i] = tmp;
+    } 
+    else {
+      return false; //Calibration failed.
+    }
+  }
+  
   return true; //Calibration successfull.
 }
 
