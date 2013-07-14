@@ -30,7 +30,7 @@
 */
 
 #include "FlightControlVariable.h"
-
+#include <AeroQuad/Libraries/AQ_Motors/Motors_PWM.h>
 #ifdef OLD_MOTOR_NUMBERING  
   #define FRONT_LEFT  MOTOR1
   #define REAR_RIGHT  MOTOR2

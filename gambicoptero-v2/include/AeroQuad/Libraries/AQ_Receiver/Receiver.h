@@ -21,7 +21,8 @@
 #ifndef _AEROQUAD_RECEIVER_H_
 #define _AEROQUAD_RECEIVER_H_
 
-#include "Arduino.h"
+#include <AeroQuad/Libraries/AQ_Defines/GlobalDefined.h>
+//#include <AeroQuad/Libraries/AQ_Receiver/Receiver_328p.h>
 
 #define PWM2RAD 0.002 //  Based upon 5RAD for full stick movement, you take this times the RAD to get the PWM conversion factor
 

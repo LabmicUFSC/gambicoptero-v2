@@ -22,6 +22,10 @@
 #ifndef _AQ_GPS_DATA_TYPE_H_
 #define _AQ_GPS_DATA_TYPE_H_
 
+typedef unsigned char byte;
+typedef unsigned char uint8_t;
+typedef unsigned uint32_t;
+
 enum {
   GPS_INVALID_ACCURACY = 0xFFFFFFFF, 
   GPS_INVALID_AGE = 0xFFFFFFFF, 

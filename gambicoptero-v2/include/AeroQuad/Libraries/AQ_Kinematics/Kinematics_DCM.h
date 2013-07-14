@@ -28,6 +28,9 @@
 // http://aeroquad.com/showthread.php?991-AeroQuad-Flight-Software-v2.0&p=12286&viewfull=1#post12286
 
 #include "Kinematics.h"
+#include <AeroQuad/Libraries/AQ_Math/AQMath.h>
+
+
 
 float dcmMatrix[9] = {0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
 float omegaP[3] = {0.0,0.0,0.0};
@@ -202,7 +205,7 @@ void earthAxisAccels(float ax, float ay, float az, float oneG)
 
 void initializeKinematics(float hdgX, float hdgY) 
 {
-  initializeBaseKinematicsParam(hdgX,hdgY);
+  initializeBaseKinematicsParam(/*hdgX,hdgY*/);
   for (byte i=0; i<3; i++) {
     omegaP[i] = 0;
     omegaI[i] = 0;

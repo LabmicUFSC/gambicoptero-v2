@@ -22,9 +22,9 @@
 #ifndef _AEROQUAD_MOTORS_PWM_H_
 #define _AEROQUAD_MOTORS_PWM_H_
 
-#include "Arduino.h"
-
 #include "Motors.h"
+
+typedef unsigned char uint8_t;
 
 #if defined (__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
   #define MOTORPIN0    2
@@ -49,10 +49,12 @@ volatile uint8_t atomicPWM_PIN6_lowState = 0;
 volatile uint8_t atomicPWM_PIN6_highState = 0;
   
 void initializeSoftPWM() {
-  TCCR0A = 0; // normal counting mode
+  /*TCCR0A = 0; // normal counting mode
   TIMSK0 |= (1<<OCIE0A); // Enable CTC interrupt
   TIMSK0 |= (1<<OCIE0B);
+  */
 }
+/*
 
 ISR(TIMER0_COMPA_vect) {
   static uint8_t state = 0;
@@ -80,7 +82,7 @@ ISR(TIMER0_COMPB_vect) { //the same with digital PIN 6 and OCR0B counter
     PORTD &= ~(1<<6);OCR0B+= atomicPWM_PIN6_lowState;state = 0;
   }
 }
-
+*/
 #endif
 
 
@@ -89,7 +91,7 @@ void initializeMotors(NB_Motors numbers) {
   #if defined (__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
 	  
   #else
-    pinMode(MOTORPIN0, OUTPUT);
+  /*  pinMode(MOTORPIN0, OUTPUT);
     pinMode(MOTORPIN1, OUTPUT);
     pinMode(MOTORPIN2, OUTPUT);
     pinMode(MOTORPIN3, OUTPUT);
@@ -98,12 +100,14 @@ void initializeMotors(NB_Motors numbers) {
       pinMode(MOTORPIN5, OUTPUT);
 	  initializeSoftPWM();
     }
+  */
   #endif
     
   commandAllMotors(1000);
 }
 
 void writeMotors() {
+  /*
   analogWrite(MOTORPIN0, motorCommand[MOTOR1] / 8);
   analogWrite(MOTORPIN1, motorCommand[MOTOR2] / 8);
   analogWrite(MOTORPIN2, motorCommand[MOTOR3] / 8);
@@ -127,9 +131,11 @@ void writeMotors() {
       analogWrite(MOTORPIN7, motorCommand[MOTOR8] / 8);
     }
   #endif
+  */
 }
 
 void commandAllMotors(int command) {
+  /*
   analogWrite(MOTORPIN0, command / 8);
   analogWrite(MOTORPIN1, command / 8);
   analogWrite(MOTORPIN2, command / 8);
@@ -154,6 +160,7 @@ void commandAllMotors(int command) {
       analogWrite(MOTORPIN7, command / 8);
     }
   #endif
+  */
 }  
 
 

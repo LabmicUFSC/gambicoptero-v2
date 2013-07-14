@@ -22,7 +22,6 @@
 #ifndef _AQ_HEADING_CONTROL_PROCESSOR_H_
 #define _AQ_HEADING_CONTROL_PROCESSOR_H_
 
-
 float setHeading          = 0;
 unsigned long headingTime = micros();
 

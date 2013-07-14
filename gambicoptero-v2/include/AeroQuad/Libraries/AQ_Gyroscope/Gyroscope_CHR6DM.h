@@ -22,9 +22,9 @@
 #define _AEROQUAD_GYROSCOPE_CHR6DM_H_
 
 #include <Platform_CHR6DM.h>
-#include <AQMath.h>
-#include <SensorsStatus.h>
-#include <GlobalDefined.h>
+#include <AeroQuad/Libraries/AQ_Math/AQMath.h>
+#include <AeroQuad/Libraries/AQ_Defines/SensorsStatus.h>
+#include <AeroQuad/Libraries/AQ_Defines/GlobalDefined.h>
 
 #define FINDZERO 49
 

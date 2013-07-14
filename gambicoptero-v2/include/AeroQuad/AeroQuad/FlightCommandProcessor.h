@@ -24,7 +24,8 @@
 #ifndef _AQ_FLIGHT_COMMAND_READER_
 #define _AQ_FLIGHT_COMMAND_READER_
 
-
+#include <AeroQuad/Libraries/AQ_Kinematics/Kinematics.h>
+ #include <AeroQuad/Libraries/AQ_Receiver/Receiver_RemotePC.h>
 
 
 #if defined (AltitudeHoldBaro) || defined (AltitudeHoldRangeFinder)

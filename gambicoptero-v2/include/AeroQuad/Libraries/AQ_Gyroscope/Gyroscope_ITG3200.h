@@ -22,21 +22,24 @@
 #define _AEROQUAD_GYROSCOPE_ITG3200_H_
 
 
-#include <Aeroquad/Libraries/AQ_Defines/SensorStatus.h>
+#include <AeroQuad/Libraries/AQ_Defines/GlobalDefined.h>
+#include <AeroQuad/Libraries/AQ_Defines/SensorsStatus.h>
 #include <AeroQuad/Libraries/AQ_Gyroscope/Gyroscope_ITG3200Common.h>
 
 void measureSpecificGyroADC(int *gyroADC) {
 
-  gyroADC[XAXIS] = readShortI2C()  - gyroZero[XAXIS];
+/*  gyroADC[XAXIS] = readShortI2C()  - gyroZero[XAXIS];
   gyroADC[YAXIS] = gyroZero[YAXIS] - readShortI2C();
   gyroADC[ZAXIS] = gyroZero[ZAXIS] - readShortI2C();
+*/
 }
 
 void measureSpecificGyroSum() {
-
+/*
   for (byte axis = XAXIS; axis <= ZAXIS; axis++) {
     gyroSample[axis] += readShortI2C();
   }
+*/
 }
 
 void evaluateSpecificGyroRate(int *gyroADC) {
@@ -46,10 +49,10 @@ void evaluateSpecificGyroRate(int *gyroADC) {
   gyroADC[ZAXIS] = gyroZero[ZAXIS] - (gyroSample[ZAXIS] / gyroSampleCount);
 }
 
-boolean calibrateGyro() {
+bool calibrateGyro() {
   //Finds gyro drift.
   //Returns false if during calibration there was movement of board. 
-
+/*
   int findZero[FINDZERO];
   int diff = 0;
 
@@ -68,7 +71,7 @@ boolean calibrateGyro() {
 		return false; //Calibration failed.
 	}
   }
-
+*/
   return true; //Calibration successfull.
 }
 

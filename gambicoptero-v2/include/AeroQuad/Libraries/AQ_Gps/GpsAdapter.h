@@ -21,7 +21,8 @@
 #ifndef _AQ_GPS_ADAPTER_H_
 #define _AQ_GPS_ADAPTER_H_
 
-#include <GpsDataType.h>
+#include <AeroQuad/Libraries/AQ_Gps/GpsDataType.h>
+
 
 struct gpsData gpsData; // This is accessed by the parser functions directly !
 

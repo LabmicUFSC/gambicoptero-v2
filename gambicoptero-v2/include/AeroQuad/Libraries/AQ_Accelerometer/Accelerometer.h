@@ -21,8 +21,8 @@
 #ifndef _AEROQUAD_ACCELEROMETER_H_
 #define _AEROQUAD_ACCELEROMETER_H_
 
-#include "Arduino.h"
-#include "GlobalDefined.h"
+#include <AeroQuad/Libraries/AQ_Defines/GlobalDefined.h>
+
 
 #define SAMPLECOUNT 400.0
 

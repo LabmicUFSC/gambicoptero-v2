@@ -21,6 +21,8 @@
 #ifndef _AEROQUAD_GLOBAL_DEFINES_H_
 #define _AEROQUAD_GLOBAL_DEFINES_H_
 
+  #include <clock.h>
+
 
 // More AQ relative than generic... have to be think again
 // Basic axis definitions
@@ -39,5 +41,14 @@
 #define OFF 0
 
 #define ALTPANIC 2
+
+typedef unsigned char byte;
+
+Clock clock;
+long unsigned int micros()
+{
+  return 0;//clock.now();
+}
+
 
 #endif

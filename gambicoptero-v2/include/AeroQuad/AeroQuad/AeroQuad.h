@@ -21,14 +21,12 @@
 #ifndef _AQ_GLOBAL_HEADER_DEFINITION_H_
 #define _AQ_GLOBAL_HEADER_DEFINITION_H_
 
-
-#include <stdlib.h>
 #include <math.h>
-#include "Arduino.h"
-#include "pins_arduino.h"
-#include "GpsDataType.h"
-#include "AQMath.h"
-#include "Receiver.h"
+//#include "Arduino.h"
+//#include "pins_arduino.h"
+//#include "GpsDataType.h"
+#include <AeroQuad/Libraries/AQ_Math/AQMath.h>
+#include <AeroQuad/Libraries/AQ_Receiver/Receiver.h>
 
 // Flight Software Version
 #define SOFTWARE_VERSION 3.2
@@ -213,9 +211,11 @@ void reportVehicleState();
  * GPS navigation global declaration
  */
 #define MAX_WAYPOINTS 16  // needed for EEPROM adr offset declarations
-#if defined (UseGPS)
 
-  #include <GpsAdapter.h>
+#undef UseGPS
+#if defined (UseGPS)
+   #include <AeroQuad/Libraries/AQ_Gps/GpsAdapter.h>
+
   
   #define DEFAULT_HOME_ALTITUDE 5  // default home base altitude is equal to 5 meter
   GeodeticPosition homePosition = GPS_INVALID_POSITION; 
@@ -329,8 +329,8 @@ typedef struct {
   float SERVOMAXYAW_ADR;
   float SERVOTXCHANNELS_ADR;
   // GPS mission storing
-  float GPS_MISSION_NB_POINT_ADR;
-  GeodeticPosition WAYPOINT_ADR[MAX_WAYPOINTS];
+  //float GPS_MISSION_NB_POINT_ADR;
+  //GeodeticPosition WAYPOINT_ADR[MAX_WAYPOINTS];
 } t_NVR_Data;  
 
 

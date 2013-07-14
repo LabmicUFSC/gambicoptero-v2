@@ -22,6 +22,7 @@
 #define _AEROQUAD_GYROSCOPE_ITG3200_COMMON_H_
 
 #include "Gyroscope.h"
+#include <AeroQuad/Libraries/AQ_Math/AQMath.h>
   
 #ifdef ITG3200_ADDRESS_ALTERNATE
   #define ITG3200_ADDRESS					0x68
@@ -51,6 +52,7 @@ void measureSpecificGyroSum();
 void evaluateSpecificGyroRate(int *gyroADC);
 
 void initializeGyro() {
+/*
   if ((readWhoI2C(ITG3200_ADDRESS) & ITG3200_IDENTITY_MASK) == ITG3200_IDENTITY) {
 	vehicleState |= GYRO_DETECTED;
   }
@@ -59,9 +61,11 @@ void initializeGyro() {
   updateRegisterI2C(ITG3200_ADDRESS, ITG3200_RESET_ADDRESS, ITG3200_RESET_VALUE); // send a reset to the device
   updateRegisterI2C(ITG3200_ADDRESS, ITG3200_LOW_PASS_FILTER_ADDR, ITG3200_LOW_PASS_FILTER_VALUE); // 10Hz low pass filter
   updateRegisterI2C(ITG3200_ADDRESS, ITG3200_RESET_ADDRESS, ITG3200_OSCILLATOR_VALUE); // use internal oscillator 
+*/
 }
 
 void measureGyro() {
+/*
   sendByteI2C(ITG3200_ADDRESS, ITG3200_MEMORY_ADDRESS);
   Wire.requestFrom(ITG3200_ADDRESS, ITG3200_BUFFER_SIZE);
 
@@ -78,15 +82,18 @@ void measureGyro() {
     gyroHeading += gyroRate[ZAXIS] * ((currentTime - gyroLastMesuredTime) / 1000000.0);
   }
   gyroLastMesuredTime = currentTime;
+*/
 }
 
 void measureGyroSum() {
+/*
   sendByteI2C(ITG3200_ADDRESS, ITG3200_MEMORY_ADDRESS);
   Wire.requestFrom(ITG3200_ADDRESS, ITG3200_BUFFER_SIZE);
   
   measureSpecificGyroSum();
   
   gyroSampleCount++;
+*/
 }
 
 void evaluateGyroRate() {
@@ -102,7 +109,7 @@ void evaluateGyroRate() {
   }
   
   // Measure gyro heading
-  long int currentTime = micros();
+  //long int currentTime = micros();
   if (gyroRate[ZAXIS] > radians(1.0) || gyroRate[ZAXIS] < radians(-1.0)) {
     gyroHeading += gyroRate[ZAXIS] * ((currentTime - gyroLastMesuredTime) / 1000000.0);
   }

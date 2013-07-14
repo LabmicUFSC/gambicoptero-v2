@@ -22,7 +22,7 @@
 #ifndef _AEROQUAD_MOTORS_H_
 #define _AEROQUAD_MOTORS_H_
 
-#include "Arduino.h"
+#include <alarm.h>
 
 #define MOTOR1 0
 #define MOTOR2 1
@@ -51,9 +51,9 @@ void commandAllMotors(int command);
 void pulseMotors(byte nbPulse) {
   for (byte i = 0; i < nbPulse; i++) {
     commandAllMotors(MINCOMMAND + 100);
-    delay(250);
+    Alarm::delay(250000);
     commandAllMotors(MINCOMMAND);
-    delay(250);
+    Alarm::delay(250000);
   }
 }
 

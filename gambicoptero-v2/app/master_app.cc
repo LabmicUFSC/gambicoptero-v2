@@ -13,9 +13,9 @@ __USING_SYS
 #include <AeroQuad/Libraries/AQ_Accelerometer/Accelerometer_ADXL345.h>
 
 #include <AeroQuad/Libraries/AQ_Defines/GlobalDefined.h>
-#include <AeroQuad/Libraries/AQ_Defines/SensorStatus.h>
+#include <AeroQuad/Libraries/AQ_Defines/SensorsStatus.h>
 #include <AeroQuad/Libraries/AQ_Math/FourtOrderFilter.h>
-#include <AeroQuad/Libraries/AQ_Kinematics/Kinematics_CHR6DM.h>
+#include <AeroQuad/Libraries/AQ_Kinematics/Kinematics_ARG.h>
 
 OStream cout;
 

@@ -25,6 +25,12 @@
 #ifndef _AQ_PROCESS_FLIGHT_CONTROL_H_
 #define _AQ_PROCESS_FLIGHT_CONTROL_H_
 
+#include "PID.h"
+#include <AeroQuad/Libraries/AQ_Kinematics/Kinematics.h>
+#include <AeroQuad/Libraries/AQ_FlightControlProcessor/FlightControlQuadX.h>
+#include <AeroQuad/Libraries/AQ_Gyroscope/Gyroscope.h>
+#include <AeroQuad/AeroQuad/HeadingHoldProcessor.h>
+
 #define ATTITUDE_SCALING (0.75 * PWM2RAD)
 
 
@@ -36,6 +42,7 @@
  */
 void calculateFlightError()
 {
+  #undef UseGPSNavigator
   #if defined (UseGPSNavigator)
     if (navigationState == ON || positionHoldState == ON) {
       float rollAttitudeCmd  = updatePID((receiverCommand[XAXIS] - receiverZero[XAXIS] + gpsRollAxisCorrection) * ATTITUDE_SCALING, kinematicsAngle[XAXIS], &PID[ATTITUDE_XAXIS_PID_IDX]);

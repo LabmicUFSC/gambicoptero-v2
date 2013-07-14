@@ -23,38 +23,36 @@
 
 #include <AeroQuad/Libraries/AQ_Accelerometer/Accelerometer.h>
 #include <AeroQuad/Libraries/AQ_Defines/SensorsStatus.h>
+#include <AeroQuad/Libraries/AQ_Defines/GlobalDefined.h>
+#include <alarm.h>
+#include <mach/mc13224v/adxl345_i2c.h>
 
 #define ACCEL_ADDRESS 0x53
 
-void initializeAccel() {
+ADXL345_I2C *accel;
 
-  if (readWhoI2C(ACCEL_ADDRESS) ==  0xE5) { 			// page 14 of datasheet
-    vehicleState |= ACCEL_DETECTED;
-  }
-	
-  updateRegisterI2C(ACCEL_ADDRESS, 0x2D, 1<<3); 	// set device to *measure*
-  updateRegisterI2C(ACCEL_ADDRESS, 0x31, 0x09);     // set full range and +/- 4G
-  updateRegisterI2C(ACCEL_ADDRESS, 0x2C, 8+2+1);    // 200hz sampling
-  delay(10); 
+
+void initializeAccel() {
+  accel = new ADXL345_I2C();
+  accel->initAccel();
+  Alarm::delay(10*1000); 
 }
   
 void measureAccel() {
+  accel->measureAccel();
+  meterPerSecSec[XAXIS] = accel->sample_x() * accelScaleFactor[XAXIS] + runTimeAccelBias[XAXIS];
+  meterPerSecSec[YAXIS] = accel->sample_y() * accelScaleFactor[YAXIS] + runTimeAccelBias[YAXIS];
+  meterPerSecSec[ZAXIS] = accel->sample_z() * accelScaleFactor[ZAXIS] + runTimeAccelBias[ZAXIS];
+  
 
-  sendByteI2C(ACCEL_ADDRESS, 0x32);
-  Wire.requestFrom(ACCEL_ADDRESS, 6);
-
-  for (byte axis = XAXIS; axis <= ZAXIS; axis++) {
-    meterPerSecSec[axis] = readReverseShortI2C() * accelScaleFactor[axis] + runTimeAccelBias[axis];
-  }
 }
 
 void measureAccelSum() {
+  accel->measureAccel();
 
-  sendByteI2C(ACCEL_ADDRESS, 0x32);
-  Wire.requestFrom(ACCEL_ADDRESS, 6);
-  for (byte axis = XAXIS; axis <= ZAXIS; axis++) {
-    accelSample[axis] += readReverseShortI2C();
-  }
+  accelSample[XAXIS] += accel->sample_x();
+  accelSample[YAXIS] += accel->sample_y();
+  accelSample[ZAXIS] += accel->sample_z();
   accelSampleCount++;
 }
 
@@ -62,7 +60,7 @@ void evaluateMetersPerSec() {
 	
   for (byte axis = XAXIS; axis <= ZAXIS; axis++) {
     meterPerSecSec[axis] = (accelSample[axis] / accelSampleCount) * accelScaleFactor[axis] + runTimeAccelBias[axis];
-	accelSample[axis] = 0;
+	  accelSample[axis] = 0;
   }
   accelSampleCount = 0;		
 }
@@ -71,7 +69,7 @@ void computeAccelBias() {
   
   for (int samples = 0; samples < SAMPLECOUNT; samples++) {
     measureAccelSum();
-    delayMicroseconds(2500);
+    Alarm::delay(2500);
   }
 
   for (byte axis = 0; axis < 3; axis++) {

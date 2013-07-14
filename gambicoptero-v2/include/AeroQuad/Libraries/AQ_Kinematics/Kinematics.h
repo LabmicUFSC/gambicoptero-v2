@@ -21,7 +21,8 @@
 #ifndef _AQ_KINEMATICS_
 #define _AQ_KINEMATICS_
 
-#include "GlobalDefined.h"
+#include <AeroQuad/Libraries/AQ_Defines/GlobalDefined.h>
+#include <AeroQuad/Libraries/AQ_Math/AQMath.h>
 
 #define CF 0
 #define KF 1
