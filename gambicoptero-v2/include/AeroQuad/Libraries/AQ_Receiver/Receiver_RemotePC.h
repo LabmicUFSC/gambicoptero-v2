@@ -23,6 +23,8 @@
 
 #include "Receiver.h"
 
+#define AUX AUX1
+
 void initializeReceiver(int nbChannel) {
 
   initializeReceiverParam(nbChannel);

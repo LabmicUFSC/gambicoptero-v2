@@ -16,6 +16,7 @@ __USING_SYS
 #include <AeroQuad/Libraries/AQ_Defines/SensorsStatus.h>
 #include <AeroQuad/Libraries/AQ_Math/FourtOrderFilter.h>
 #include <AeroQuad/Libraries/AQ_Kinematics/Kinematics_ARG.h>
+#include <AeroQuad/Libraries/AQ_Receiver/Receiver_RemotePC.h>
 
 OStream cout;
 
