@@ -26,14 +26,15 @@ bool ITG3200_I2C::initGyro() {
     return true;
 }
 
-void ITG3200_I2C::measureGyro() {
+bool ITG3200_I2C::measureGyro() {
     unsigned char values[6] = {0,0,0,0,0,0};
     i2c.set_timeout(40000);
-    if(!i2c.read_register(DEVICE_ADDR, MEMORY_ADDRESS, 6, values))
-        return;
-    gyroSample[X] = (values[0]<<8) + values[1];
-    gyroSample[Y] = (values[2]<<8) + values[3];
-    gyroSample[Z] = (values[4]<<8) + values[5];
+    if(!i2c.read_register(DEVICE_ADDR, MEMORY_ADDRESS, 1, values))
+        return false;
+    gyroSample[X] = (values[0]<<8) | values[1];
+    gyroSample[Y] = (values[2]<<8) | values[3];
+    gyroSample[Z] = (values[4]<<8) | values[5];
+    return true;
 }
 
 

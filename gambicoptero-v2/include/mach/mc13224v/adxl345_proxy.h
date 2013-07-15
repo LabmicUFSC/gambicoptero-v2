@@ -5,6 +5,8 @@
 #include<system.h>
 #include <utility/math.h>
 
+#include <mach/mc13224v/quadcopter_network.h>
+
 __BEGIN_SYS
 
 class ADXL345_Proxy

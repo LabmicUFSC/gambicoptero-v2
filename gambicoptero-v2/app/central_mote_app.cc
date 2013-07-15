@@ -17,30 +17,59 @@ __USING_SYS
 #include <AeroQuad/Libraries/AQ_Math/FourtOrderFilter.h>
 #include <AeroQuad/Libraries/AQ_Kinematics/Kinematics_ARG.h>
 #include <AeroQuad/Libraries/AQ_Receiver/Receiver_RemotePC.h>
-
-// INCLUIR QUADCOPTER NETWORK
+#include <mach/mc13224v/quadcopter_network.h>
 
 OStream cout;
+ITG3200_I2C gyroso;
 
+void maca_handler(MACA_Transceiver::Event event)
+{
+    if(event == MACA_Transceiver::LOST_COMMUNICATION)
+        cout<<"Lost communication! Abort!\n";
+    else if(event == MACA_Transceiver::BEACON_READY)
+        cout<<"Network received data from coordinator!\n";
+    else if(event == MACA_Transceiver::DATA_READY)
+        cout<<"Network received feedback data!\n";
+}
 
 int task_100hz() {
+  
 
   for(;;) {
-      evaluateGyroRate();
-      evaluateMetersPerSec();
-
+      measureAccel();
+      //measureGyro();
+      //if(!gyroso.measureGyro())
+      //  for(;;)cout<<"TRETA\n";
+      gyroRate[XAXIS] = gyroso.sample_x();
+      gyroRate[YAXIS] = gyroso.sample_y();
+      gyroRate[ZAXIS] = gyroso.sample_z();
+      //evaluateMetersPerSec();
       // envia pela rede
       //set_data_coordinator( short accx, short accy, short accz, short gyrx, short gyry, short gyrz );
       // precisa de um conversor de precisão float -> short
+      
       Quadcopter_Network::set_data_coordinator(meterPerSecSec[XAXIS], meterPerSecSec[YAXIS], meterPerSecSec[ZAXIS], gyroRate[XAXIS], gyroRate[YAXIS], gyroRate[ZAXIS]);
+
+      cout << "accelerometer: (" << meterPerSecSec[XAXIS] << "\t " << meterPerSecSec[YAXIS] << "\t " << meterPerSecSec[ZAXIS] << ")\t~~\t";
+      cout << "gyroscope: ("<< gyroRate[XAXIS] << ",\t " << gyroRate[YAXIS] << ",\t " << gyroRate[ZAXIS] << ")\n";
 
       Periodic_Thread::wait_next();
   }
 }
 
 int main() {
+      Quadcopter_Network::init(&maca_handler);
 
-    Periodic_Thread thread(&task_100hz, 10000);
+    initializeAccel();
+    if(!gyroso.initGyro())
+     for(;;) cout << "TRETA2\n";
+    //if(!initializeGyro()) {
+    // for(;;)
+    //  cout << "CAGOU\n";
+    //}
+    //computeAccelBias();
+
+    Periodic_Thread thread(&task_100hz, 1000000);
     thread.join();
     for(;;);
 

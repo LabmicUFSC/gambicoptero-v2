@@ -54,9 +54,13 @@ void evaluateSpecificGyroRate(int *gyroADC);
 
 ITG3200_I2C *gyro;
 
-void initializeGyro() {
+bool initializeGyro() {
   gyro = new ITG3200_I2C();
-  gyro->initGyro();
+  if(!gyro->initGyro()) {
+    delete gyro;
+    return false;
+  }
+  return true;
 }
 
 void measureGyro() {
@@ -65,8 +69,8 @@ void measureGyro() {
   int gyroADC[3];
   measureSpecificGyroADC(gyroADC, gyro->sample_x(), gyro->sample_y(), gyro->sample_z());
   
-  for (byte axis = 0; axis <= ZAXIS; axis++) {
-	gyroRate[axis] = gyroADC[axis] * gyroScaleFactor;
+  for (byte axis = XAXIS; axis <= ZAXIS; axis++) {
+	   gyroRate[axis] = gyroADC[axis] * gyroScaleFactor;
   }
  
   // Measure gyro heading

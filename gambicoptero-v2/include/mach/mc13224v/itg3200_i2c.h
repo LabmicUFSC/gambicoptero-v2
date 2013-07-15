@@ -37,7 +37,7 @@ private:
 public:
 
 
-    void measureGyro();
+    bool measureGyro();
     ITG3200_I2C();
 
     ~ITG3200_I2C();
