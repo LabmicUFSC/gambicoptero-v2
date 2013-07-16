@@ -31,9 +31,11 @@ void maca_handler(MACA_Transceiver::Event event)
     if(event == MACA_Transceiver::LOST_COMMUNICATION)
         cout<<"Lost communication! Abort!\n";
     else if(event == MACA_Transceiver::BEACON_READY)
-        cout<<"Network received data from coordinator!\n";
+		;
+//        cout<<"Network received data from coordinator!\n";
     else if(event == MACA_Transceiver::DATA_READY)
-        cout<<"Network received feedback data!\n";
+		;
+  //      cout<<"Network received feedback data!\n";
 }
 
 void _evaluateGyroRate()
@@ -42,19 +44,19 @@ void _evaluateGyroRate()
   gyroRate[XAXIS] = gyroso.sample_x();
   gyroRate[YAXIS] = gyroso.sample_y();
   gyroRate[ZAXIS] = gyroso.sample_z();
-
 }
 
 void _evaluateMetersPerSec()
 {
   acceleroso.measureAccel();
-  meterPerSecSec[XAXIS] = acceleroso.sample_x();
-  meterPerSecSec[YAXIS] = acceleroso.sample_y();
-  meterPerSecSec[ZAXIS] = acceleroso.sample_z();
+  accelSample[XAXIS] = acceleroso.sample_x();
+  accelSample[YAXIS] = acceleroso.sample_y();
+  accelSample[ZAXIS] = acceleroso.sample_z();
 }
 
 int task_100hz() {
 
+	int i = 0;
   for(;;) {
       G_Dt = (currentTime - hundredHZpreviousTime) / 1000000.0;
       hundredHZpreviousTime = currentTime;
@@ -62,10 +64,12 @@ int task_100hz() {
       _evaluateGyroRate();
       _evaluateMetersPerSec();
 
-      cout << "X: " << meterPerSecSec[0] << "\tY: " << meterPerSecSec[1] << "\tZ: " << meterPerSecSec[2] << "\n";
+	  i=(i+1)%100;
+	  if(!i)
+	      cout << "X: " << accelSample[0] << "    Y: " << accelSample[1] << "    Z: " << accelSample[2] << "\n";
 
       //for (int axis = XAXIS; axis <= ZAXIS; axis++) {
-      //  filteredAccel[axis] = computeFourthOrder(meterPerSecSec[axis], &fourthOrder[axis]);
+      //  filteredAccel[axis] = computeFourthOrder(accelSample[axis], &fourthOrder[axis]);
       //}
         
       //calculateKinematics(gyroRate[XAXIS], gyroRate[YAXIS], gyroRate[ZAXIS], filteredAccel[XAXIS], filteredAccel[YAXIS], filteredAccel[ZAXIS], G_Dt);
@@ -78,6 +82,7 @@ int task_100hz() {
 
 int main() {
     Quadcopter_Network::init(&maca_handler);
+	Quadcopter_Network::run();
     Periodic_Thread thread(&task_100hz, 10000);
     thread.join();
     for(;;);

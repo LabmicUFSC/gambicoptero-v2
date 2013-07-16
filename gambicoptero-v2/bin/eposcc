@@ -6,7 +6,7 @@
 #=========================================================================
 # PATHS
 #=========================================================================
-EPOS=/home/user/gambicoptero-v2/gambicoptero-v2
+EPOS=/home/davi/UFSC/LabMic/quadcopter/git/gambicoptero-v2/gambicoptero-v2
 TMP=/tmp
 INC=$EPOS/include
 SRC=$EPOS/src

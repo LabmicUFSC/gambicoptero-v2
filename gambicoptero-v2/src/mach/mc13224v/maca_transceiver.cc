@@ -21,8 +21,8 @@ __BEGIN_SYS
 const int MACA_Transceiver::actions[n_actions] = {
 	BCN_RX, SEQ_RX, SEQ_WAIT, //Superframe 0
 	BCN_RX, SEQ_RX, SEQ_WAIT, //Superframe 1
-	BCN_RX, SEQ_TX, SEQ_WAIT, //Superframe 2
-	BCN_RX, SEQ_RX, SEQ_WAIT  //Superframe 3
+	BCN_RX, SEQ_RX, SEQ_WAIT, //Superframe 2
+	BCN_RX, SEQ_TX, SEQ_WAIT  //Superframe 3
 };
 /*
 // Coordinator node example
@@ -45,9 +45,12 @@ const int MACA_Transceiver::actions[n_actions] = {
 
 //const unsigned int MACA_Transceiver::slot_size[n_slots] = {50000, 50000, 25000}; 
 //const unsigned int MACA_Transceiver::slot_size[n_slots] = {250000, 250000, 125000}; //1s, 1s, 500ms
-const unsigned int MACA_Transceiver::slot_size[n_slots] = {1000, 1000, 500}; //4ms, 4ms, 2ms
+//const unsigned int MACA_Transceiver::slot_size[n_slots] = {1000, 1000, 500}; //4ms, 4ms, 2ms
+const unsigned int MACA_Transceiver::slot_size[n_slots] = {4000, 4000, 2000}; //4ms, 4ms, 2ms
 volatile int MACA_Transceiver::current_slot = 0;
 volatile unsigned int MACA_Transceiver::current_slot_end = 0;
+unsigned int MACA_Transceiver::last_beacon_timestamp = 0;
+unsigned int MACA_Transceiver::last_data_timestamp = 0;
 volatile unsigned char MACA_Transceiver::rx_buffer[MAX_FRAME_SIZE];
 volatile unsigned char MACA_Transceiver::dummy_buffer[MAX_FRAME_SIZE];
 volatile unsigned char * MACA_Transceiver::tx_buffer;
@@ -149,9 +152,10 @@ void MACA_Transceiver::maca_isr() {
 		// Was waiting for a beacon and received a beacon. Sync to it.
 		if(current_action == BCN_RX && (rx_buffer[1] >> 7) == 0)
 		{
+			last_beacon_timestamp = CPU::in32(IO::MACA_TIMESTAMP);
 			current_slot = 0;
 			act_idx = n_slots * (rx_buffer[1] % n_slots);
-			current_slot_end = CPU::in32(IO::MACA_TIMESTAMP) -TSTXOFFSET+ slot_size[0];
+			current_slot_end = last_beacon_timestamp -TSTXOFFSET+ slot_size[0];
 			call_handler = BEACON_READY;
 			beacon_handled = true;
 			
@@ -161,6 +165,7 @@ void MACA_Transceiver::maca_isr() {
 		// Was waiting for data and received data. Report to upper layer.
 		else if((current_action == SEQ_RX) && ((rx_buffer[1] >> 7) != 0))
 		{
+			last_data_timestamp = CPU::in32(IO::MACA_TIMESTAMP);
 			call_handler = DATA_READY;
 		}
 	}

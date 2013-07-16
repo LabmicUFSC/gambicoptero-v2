@@ -11,18 +11,26 @@ __BEGIN_SYS
 
 class ADXL345_Proxy
 {
+	private:
+		unsigned int last_timestamp;
 public:
 
 
     void measureAccel()
     {
     	short gyro;
-    	Quadcopter_Network::get_data_coordinator(accelSample[0], accelSample[1], accelSample[2],
-                                            gyro, gyro, gyro );
+		if(Quadcopter_Network::last_coordinator_timestamp() > last_timestamp)
+		{
+			last_timestamp = Quadcopter_Network::get_data_coordinator(accelSample[0], accelSample[1], accelSample[2], gyro, gyro, gyro );
+		}
+		else
+		{
+			//Call predictor
+		}
     }
     ADXL345_Proxy()
     {
-
+		last_timestamp = 0;
     }
 
     ~ADXL345_Proxy()

@@ -11,14 +11,22 @@ __BEGIN_SYS
 class ITG3200_Proxy
 { 
 	short gyro[3];
+	private:
+		unsigned int last_timestamp;
 public:
-	ITG3200_Proxy(){};
+	ITG3200_Proxy(){ last_timestamp = 0;};
 	~ITG3200_Proxy(){};
 
 	void measureGyro(){
 		short accel;
-    	Quadcopter_Network::get_data_coordinator(accel,accel, accel,
-                                            gyro[0], gyro[1], gyro[2] );
+		if(Quadcopter_Network::last_coordinator_timestamp() > last_timestamp)
+		{
+			last_timestamp = Quadcopter_Network::get_data_coordinator(accel,accel, accel, gyro[0], gyro[1], gyro[2] );
+		}
+		else
+		{
+			//Call predictor
+		}
 	}
 
 	short sample_x(){ return gyro[0]; }

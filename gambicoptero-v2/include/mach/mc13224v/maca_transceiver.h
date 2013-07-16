@@ -257,6 +257,8 @@ public:
 	volatile static unsigned char  * tx_buffer;
 	static unsigned int tx_size;
 	static unsigned int rx_size;
+	static unsigned int last_data_timestamp;
+	static unsigned int last_beacon_timestamp;
 };
 
 __END_SYS

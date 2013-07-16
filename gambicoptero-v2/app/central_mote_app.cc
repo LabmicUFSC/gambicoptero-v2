@@ -27,9 +27,11 @@ void maca_handler(MACA_Transceiver::Event event)
     if(event == MACA_Transceiver::LOST_COMMUNICATION)
         cout<<"Lost communication! Abort!\n";
     else if(event == MACA_Transceiver::BEACON_READY)
-        cout<<"Network received data from coordinator!\n";
+		;
+        //cout<<"Network received data from coordinator!\n";
     else if(event == MACA_Transceiver::DATA_READY)
-        cout<<"Network received feedback data!\n";
+		;
+        //cout<<"Network received feedback data!\n";
 }
 
 int task_100hz() {
@@ -48,10 +50,10 @@ int task_100hz() {
       //set_data_coordinator( short accx, short accy, short accz, short gyrx, short gyry, short gyrz );
       // precisa de um conversor de precisão float -> short
       
-      Quadcopter_Network::set_data_coordinator(meterPerSecSec[XAXIS], meterPerSecSec[YAXIS], meterPerSecSec[ZAXIS], gyroRate[XAXIS], gyroRate[YAXIS], gyroRate[ZAXIS]);
+      Quadcopter_Network::set_data_coordinator(accelSample[XAXIS], accelSample[YAXIS], accelSample[ZAXIS], gyroRate[XAXIS], gyroRate[YAXIS], gyroRate[ZAXIS]);
 
-      cout << "accelerometer: (" << meterPerSecSec[XAXIS] << "\t " << meterPerSecSec[YAXIS] << "\t " << meterPerSecSec[ZAXIS] << ")\t~~\t";
-      cout << "gyroscope: ("<< gyroRate[XAXIS] << ",\t " << gyroRate[YAXIS] << ",\t " << gyroRate[ZAXIS] << ")\n";
+      cout << "accelerometer: (" << accelSample[XAXIS] << "     " << accelSample[YAXIS] << "     " << accelSample[ZAXIS] << ")    ~~    ";
+      cout << "gyroscope: ("<< gyroRate[XAXIS] << ",     " << gyroRate[YAXIS] << ",     " << gyroRate[ZAXIS] << ")\n";
 
       Periodic_Thread::wait_next();
   }
@@ -69,6 +71,7 @@ int main() {
     //}
     //computeAccelBias();
 
+	Quadcopter_Network::run();
     Periodic_Thread thread(&task_100hz, 1000000);
     thread.join();
     for(;;);

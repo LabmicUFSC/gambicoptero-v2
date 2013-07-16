@@ -11,6 +11,8 @@ class Quadcopter_Network
 {
 	public:
 
+		static unsigned int last_coordinator_timestamp();
+		static unsigned int last_feedback_timestamp();
 		static int get_buffer_copy(unsigned char *buffer_copy);
 		static void set_buffer_payload(unsigned char *data);
 
@@ -18,12 +20,12 @@ class Quadcopter_Network
 		static void init(MACA_Transceiver::event_handler handler = 0);
 		static void set_data_coordinator( short accx, short accy, short accz,
 					   	  	    		  short gyrx, short gyry, short gyrz );
-		static void get_data_coordinator( short &accx, short &accy, short &accz,
-					   	  	    		  short &gyrx, short &gyry, short &gyrz );
+		static unsigned int get_data_coordinator( short &accx, short &accy, short &accz,
+					   	  	    		          short &gyrx, short &gyry, short &gyrz );
 		static void set_data_feedback( unsigned char pwm1, unsigned char pwm2,
 					   			   	   unsigned char pwm3, unsigned char pwm4 );
-		static void get_data_feedback( unsigned char &pwm1, unsigned char &pwm2,
-					   			   	   unsigned char &pwm3, unsigned char &pwm4 );
+		static unsigned int get_data_feedback( unsigned char &pwm1, unsigned char &pwm2,
+					   		   		   	       unsigned char &pwm3, unsigned char &pwm4 );
 
 		typedef struct
 		{

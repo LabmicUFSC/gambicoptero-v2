@@ -26,6 +26,8 @@ void Quadcopter_Network::init(MACA_Transceiver::event_handler handler/*=0*/)
 }
 
 int Quadcopter_Network::run() { _maca->run(); return 0; }
+unsigned int Quadcopter_Network::last_coordinator_timestamp() {return  _maca->last_beacon_timestamp;}
+unsigned int Quadcopter_Network::last_feedback_timestamp() {return  _maca->last_data_timestamp;}
 
 void Quadcopter_Network::set_data_coordinator( short accx, short accy, short accz,
 		                                       short gyrx, short gyry, short gyrz )
@@ -45,7 +47,7 @@ void Quadcopter_Network::set_data_coordinator( short accx, short accy, short acc
 	_send_buffer[12] = (unsigned char)(gyrz);
 }
 
-void Quadcopter_Network::get_data_coordinator( short &accx, short &accy, short &accz,
+unsigned int Quadcopter_Network::get_data_coordinator( short &accx, short &accy, short &accz,
 		                                       short &gyrx, short &gyry, short &gyrz )
 {
 	accx = MACA_Transceiver::rx_buffer[2];
@@ -67,15 +69,17 @@ void Quadcopter_Network::get_data_coordinator( short &accx, short &accy, short &
 	gyrz = MACA_Transceiver::rx_buffer[12];
 	gyrz <<= 8;
 	gyrz +=	MACA_Transceiver::rx_buffer[13];
+	return _maca->last_beacon_timestamp;
 }
 
-void Quadcopter_Network::get_data_feedback( unsigned char &pwm1, unsigned char &pwm2,
+unsigned int Quadcopter_Network::get_data_feedback( unsigned char &pwm1, unsigned char &pwm2,
 						  			        unsigned char &pwm3, unsigned char &pwm4 )
 {
 	pwm1 = MACA_Transceiver::rx_buffer[2]; 
 	pwm2 = MACA_Transceiver::rx_buffer[3];
 	pwm3 = MACA_Transceiver::rx_buffer[4]; 
 	pwm4 = MACA_Transceiver::rx_buffer[5];
+	return _maca->last_data_timestamp;
 }
 
 void Quadcopter_Network::set_data_feedback( unsigned char pwm1, unsigned char pwm2,
