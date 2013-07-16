@@ -83,7 +83,7 @@ int main() {
     //computeAccelBias();
 
 	Quadcopter_Network::run();
-    Periodic_Thread thread(&task_100hz, 1000000);
+    Periodic_Thread thread(&task_100hz, 10000);
     thread.join();
     for(;;);
 

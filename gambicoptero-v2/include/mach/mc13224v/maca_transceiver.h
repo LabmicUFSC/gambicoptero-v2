@@ -234,13 +234,14 @@ public:
 	static volatile int current_slot;
 	static volatile int act_idx;
 	static volatile unsigned int current_slot_end;
-    static const unsigned int CLOCK_OFFSET = 50;
-    static const unsigned int TSTXOFFSET = 164;// + CLOCK_OFFSET;
     //static const unsigned int TIMEOUT_OFFSET = 5000;
-    static const unsigned int TIMEOUT_OFFSET = TSTXOFFSET;
+    static const unsigned int CLOCK_OFFSET = 90;
+    static const unsigned int TIMEOUT_OFFSET = 45 + 10 + CLOCK_OFFSET + 50; // Scheduling overhead + isr call overhead + clock offset for TX + some safety
+    static const unsigned int TSTXOFFSET = CLOCK_OFFSET + 10;
     static const unsigned int MAX_FRAME_SIZE = 13 + 2 + 1; // Reserved space for FCS and length
-	static const unsigned int n_actions = 12;
 	static const unsigned int n_slots = 3;
+	static const unsigned int n_superframes = 4;
+	static const unsigned int n_actions = n_slots * n_superframes;
 	
 	static unsigned int beacon_timeout;
 

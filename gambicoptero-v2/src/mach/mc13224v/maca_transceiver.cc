@@ -20,9 +20,9 @@ __BEGIN_SYS
 // Sensor node example
 const int MACA_Transceiver::actions[n_actions] = {
 	BCN_RX, SEQ_RX, SEQ_WAIT, //Superframe 0
-	BCN_RX, SEQ_RX, SEQ_WAIT, //Superframe 1
+	BCN_RX, SEQ_TX, SEQ_WAIT, //Superframe 1
 	BCN_RX, SEQ_RX, SEQ_WAIT, //Superframe 2
-	BCN_RX, SEQ_TX, SEQ_WAIT  //Superframe 3
+	BCN_RX, SEQ_RX, SEQ_WAIT  //Superframe 3
 };
 /*
 // Coordinator node example
@@ -45,8 +45,7 @@ const int MACA_Transceiver::actions[n_actions] = {
 
 //const unsigned int MACA_Transceiver::slot_size[n_slots] = {50000, 50000, 25000}; 
 //const unsigned int MACA_Transceiver::slot_size[n_slots] = {250000, 250000, 125000}; //1s, 1s, 500ms
-//const unsigned int MACA_Transceiver::slot_size[n_slots] = {1000, 1000, 500}; //4ms, 4ms, 2ms
-const unsigned int MACA_Transceiver::slot_size[n_slots] = {4000, 4000, 2000}; //4ms, 4ms, 2ms
+const unsigned int MACA_Transceiver::slot_size[n_slots] = {1000, 1000, 500}; //4ms, 4ms, 2ms
 volatile int MACA_Transceiver::current_slot = 0;
 volatile unsigned int MACA_Transceiver::current_slot_end = 0;
 unsigned int MACA_Transceiver::last_beacon_timestamp = 0;
@@ -113,17 +112,18 @@ MACA_Transceiver::event_handler * MACA_Transceiver::get_event_handler() {
 //unsigned long a, an, at, amin, amax;
 //Chronometer chrono;
 void MACA_Transceiver::run() {
-	//an=0;at=0;amin=1000000;amax=0;
-	//chrono.start();
+//	an=0;at=0;amin=1000000;amax=0;
 	act_idx = n_actions-1;
 	current_slot = n_slots-1;
 	current_action = SEQ_WAIT;
 	current_slot_end = CPU::in32(IO::MACA_RELCLK) + slot_size[current_slot];
+	//chrono.start();
 	CPU::out32(IO::MACA_SETIRQ, (1 << IRQ_ACPL));
 	return;
 }
 
 void MACA_Transceiver::maca_isr() {
+	//int a = chrono.read();
 	CPU::out32(IO::ITC_INTFRC, 0); // stop forcing interrupts
 
 	IC::disable(IC::IRQ_MACA);
@@ -154,7 +154,7 @@ void MACA_Transceiver::maca_isr() {
 		{
 			last_beacon_timestamp = CPU::in32(IO::MACA_TIMESTAMP);
 			current_slot = 0;
-			act_idx = n_slots * (rx_buffer[1] % n_slots);
+			act_idx = n_slots * (rx_buffer[1] % n_superframes);
 			current_slot_end = last_beacon_timestamp -TSTXOFFSET+ slot_size[0];
 			call_handler = BEACON_READY;
 			beacon_handled = true;
@@ -209,7 +209,7 @@ void MACA_Transceiver::maca_isr() {
 		// Late start. Force resync. (this should not happen, but just in case)
 		if((CPU::in32(IO::MACA_STATUS) & 0x07) == 0x07)
 		{
-			cout<<"Late start "<<current_slot<<" "<<current_action<<" "<<CPU::in32(IO::MACA_RELCLK) << " "<<current_slot_end<<'\n';
+			cout<<"Late start "<<current_slot<<" "<<current_action<<" "<<CPU::in32(IO::MACA_RELCLK) << " "<<last_slot_end<<'\n';
 			current_action = BCN_RX;
 			last_slot_end = CPU::in32(IO::MACA_RELCLK) + TIMEOUT_OFFSET;
 		}
@@ -267,6 +267,18 @@ void MACA_Transceiver::maca_isr() {
 					(4 << CONTROL_PRECOUNT) |
 					(maca_action))
 				);
+		/*
+		int a = chrono.read();
+		if(a>0)
+		{
+			an++;
+			at+=a;
+			if(a<amin) amin=a;
+			if(a>amax) amax=a;
+			if(!(an%40000))
+				cout<<an<<" "<<at<<" "<<amin<<" "<<amax<<" "<<an/at<<'\n';
+		}
+		*/
 	}
 
 	if (bit_is_set(maca_irq,IRQ_SYNC)) {
@@ -297,10 +309,10 @@ void MACA_Transceiver::maca_isr() {
 		CPU::out32(IO::MACA_CLRIRQ, 0xffff);
 	}
 
+	IC::enable(IC::IRQ_MACA);
+
 	if(handler!=0 && call_handler != NO_EVENT)
 		handler(call_handler);
-
-	IC::enable(IC::IRQ_MACA);
 }
 
 void MACA_Transceiver::maca_init() {
