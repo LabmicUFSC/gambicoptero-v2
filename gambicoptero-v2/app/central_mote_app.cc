@@ -22,10 +22,14 @@ __USING_SYS
 OStream cout;
 ITG3200_I2C gyroso;
 
+volatile bool network_ok;
 void maca_handler(MACA_Transceiver::Event event)
 {
     if(event == MACA_Transceiver::LOST_COMMUNICATION)
+	{
         cout<<"Lost communication! Abort!\n";
+		network_ok = false;
+	}
     else if(event == MACA_Transceiver::BEACON_READY)
 		;
         //cout<<"Network received data from coordinator!\n";
@@ -35,9 +39,10 @@ void maca_handler(MACA_Transceiver::Event event)
 }
 
 int task_100hz() {
+	int i = 0;
   
 
-  for(;;) {
+  while(network_ok) {
       measureAccel();
       //measureGyro();
       //if(!gyroso.measureGyro())
@@ -52,14 +57,20 @@ int task_100hz() {
       
       Quadcopter_Network::set_data_coordinator(accelSample[XAXIS], accelSample[YAXIS], accelSample[ZAXIS], gyroRate[XAXIS], gyroRate[YAXIS], gyroRate[ZAXIS]);
 
-      cout << "accelerometer: (" << accelSample[XAXIS] << "     " << accelSample[YAXIS] << "     " << accelSample[ZAXIS] << ")    ~~    ";
-      cout << "gyroscope: ("<< gyroRate[XAXIS] << ",     " << gyroRate[YAXIS] << ",     " << gyroRate[ZAXIS] << ")\n";
+	  i=(i+1)%100;
+	  if(!i)
+	  {
+		  cout << "accelerometer: (" << accelSample[XAXIS] << "     " << accelSample[YAXIS] << "     " << accelSample[ZAXIS] << ")    ~~    ";
+		  cout << "gyroscope: ("<< gyroRate[XAXIS] << ",     " << gyroRate[YAXIS] << ",     " << gyroRate[ZAXIS] << ")\n";
+	  }
 
       Periodic_Thread::wait_next();
   }
+  cout << "Lost the network! Land blindingly!\n";
 }
 
 int main() {
+	network_ok = true;;
       Quadcopter_Network::init(&maca_handler);
 
     initializeAccel();

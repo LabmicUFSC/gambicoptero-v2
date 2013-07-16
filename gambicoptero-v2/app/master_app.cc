@@ -25,11 +25,15 @@ OStream cout;
 ADXL345_Proxy acceleroso;
 ITG3200_Proxy gyroso;
 
+volatile bool network_ok;
 
 void maca_handler(MACA_Transceiver::Event event)
 {
     if(event == MACA_Transceiver::LOST_COMMUNICATION)
+	{
         cout<<"Lost communication! Abort!\n";
+		network_ok = false;
+	}
     else if(event == MACA_Transceiver::BEACON_READY)
 		;
 //        cout<<"Network received data from coordinator!\n";
@@ -57,7 +61,7 @@ void _evaluateMetersPerSec()
 int task_100hz() {
 
 	int i = 0;
-  for(;;) {
+  while(network_ok) {
       G_Dt = (currentTime - hundredHZpreviousTime) / 1000000.0;
       hundredHZpreviousTime = currentTime;
       
@@ -78,9 +82,11 @@ int task_100hz() {
 
       Periodic_Thread::wait_next();
   }
+  cout << "Lost the network! Land blindingly!\n";
 }
 
 int main() {
+	network_ok = true;
     Quadcopter_Network::init(&maca_handler);
 	Quadcopter_Network::run();
     Periodic_Thread thread(&task_100hz, 10000);
