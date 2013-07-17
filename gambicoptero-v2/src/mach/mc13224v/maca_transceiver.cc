@@ -20,9 +20,9 @@ __BEGIN_SYS
 // Sensor node example
 const int MACA_Transceiver::actions[n_actions] = {
 	BCN_RX, SEQ_RX, SEQ_WAIT, //Superframe 0
-	BCN_RX, SEQ_TX, SEQ_WAIT, //Superframe 1
+	BCN_RX, SEQ_RX, SEQ_WAIT, //Superframe 1
 	BCN_RX, SEQ_RX, SEQ_WAIT, //Superframe 2
-	BCN_RX, SEQ_RX, SEQ_WAIT  //Superframe 3
+	BCN_RX, SEQ_TX, SEQ_WAIT  //Superframe 3
 };
 /*
 // Coordinator node example
@@ -167,6 +167,13 @@ void MACA_Transceiver::maca_isr() {
 		{
 			last_data_timestamp = CPU::in32(IO::MACA_TIMESTAMP);
 			call_handler = DATA_READY;
+			CPU::out32(IO::MACA_TXLEN, (MAX_FRAME_SIZE << 16));
+			CPU::out32(IO::MACA_DMARX, (unsigned int)rx_buffer);
+		}
+		else
+		{
+			CPU::out32(IO::MACA_TXLEN, (MAX_FRAME_SIZE << 16));
+			CPU::out32(IO::MACA_DMARX, (unsigned int)rx_buffer);
 		}
 	}
 
@@ -299,7 +306,11 @@ void MACA_Transceiver::maca_isr() {
 	}
 	if (bit_is_set(maca_irq,IRQ_CRC)) {
 		CPU::out32(IO::MACA_CLRIRQ, (1 << IRQ_CRC));
-		//cout<<"CRC\n";
+		/*
+		CPU::out32(IO::MACA_TXLEN, (MAX_FRAME_SIZE << 16));
+		CPU::out32(IO::MACA_DMARX, (unsigned int)rx_buffer);
+		cout<<"CRC\n";
+		*/
 	}
 	if (bit_is_set(maca_irq,IRQ_POLL)) {
 		CPU::out32(IO::MACA_CLRIRQ, (1 << IRQ_POLL));
