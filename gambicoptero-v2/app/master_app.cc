@@ -72,13 +72,13 @@ int task_100hz() {
 	  if(!i)
 	      cout << "X: " << accelSample[0] << "    Y: " << accelSample[1] << "    Z: " << accelSample[2] << "\n";
 
-      //for (int axis = XAXIS; axis <= ZAXIS; axis++) {
-      //  filteredAccel[axis] = computeFourthOrder(accelSample[axis], &fourthOrder[axis]);
-      //}
+      for (int axis = XAXIS; axis <= ZAXIS; axis++) {
+        filteredAccel[axis] = computeFourthOrder(accelSample[axis], &fourthOrder[axis]);
+      }
         
-      //calculateKinematics(gyroRate[XAXIS], gyroRate[YAXIS], gyroRate[ZAXIS], filteredAccel[XAXIS], filteredAccel[YAXIS], filteredAccel[ZAXIS], G_Dt);
+      calculateKinematics(gyroRate[XAXIS], gyroRate[YAXIS], gyroRate[ZAXIS], filteredAccel[XAXIS], filteredAccel[YAXIS], filteredAccel[ZAXIS], G_Dt);
       
-      //processFlightControl();
+      processFlightControl();
 
       Periodic_Thread::wait_next();
   }

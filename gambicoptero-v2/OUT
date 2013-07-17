@@ -1,0 +1,84 @@
+make: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2'
+(cd etc && make)
+make[1]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/etc'
+sed -e 's/^#define ARCH.*$/#define ARCH arm7/' -i  /home/user/gambicoptero-v2/gambicoptero-v2/include/system/config.h
+sed -e 's/^#define MACH.*$/#define MACH mc13224v/' -i  /home/user/gambicoptero-v2/gambicoptero-v2/include/system/config.h
+make[1]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/etc'
+(cd tools && make)
+make[1]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/tools'
+(cd emote && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/tools/emote'
+install -m 775 red-bsl.py ssl.bin flasher.bin /home/user/gambicoptero-v2/gambicoptero-v2/bin
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/tools/emote'
+(cd eposcc && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/tools/eposcc'
+install -m 775 eposcc /home/user/gambicoptero-v2/gambicoptero-v2/bin
+sed -e 's/^EPOS=.*$/EPOS=\/home\/user\/gambicoptero-v2\/gambicoptero-v2/' -i  /home/user/gambicoptero-v2/gambicoptero-v2/bin/eposcc
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/tools/eposcc'
+(cd eposldr && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/tools/eposldr'
+install eposldr /home/user/gambicoptero-v2/gambicoptero-v2/bin
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/tools/eposldr'
+(cd eposmkbi && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/tools/eposmkbi'
+install -m 775 eposmkbi /home/user/gambicoptero-v2/gambicoptero-v2/bin
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/tools/eposmkbi'
+make[1]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/tools'
+(cd src && make)
+make[1]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src'
+(cd utility && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/utility'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/utility'
+(cd arch && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/arch'
+(cd arm7 && make)
+make[3]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/arch/arm7'
+install arm7_crt1.o arm7_crtbegin.o arm7_crtend.o arm7_crti.o arm7_crtn.o /home/user/gambicoptero-v2/gambicoptero-v2/lib
+make[3]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/arch/arm7'
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/arch'
+(cd mach && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/mach'
+(cd common && make)
+make[3]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/mach/common'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/mach/common'
+(cd mc13224v && make)
+make[3]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/mach/mc13224v'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/mach/mc13224v'
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/mach'
+(cd abstraction && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/abstraction'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/abstraction'
+(cd setup && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/setup'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/setup'
+(cd boot && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/boot'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/boot'
+(cd system && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/system'
+install system_scaffold.o mc13224v_system.o
+install application_scaffold.o mc13224v_application.o
+install mc13224v_system.o /home/user/gambicoptero-v2/gambicoptero-v2/lib
+install mc13224v_application.o /home/user/gambicoptero-v2/gambicoptero-v2/lib
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/system'
+(cd init && make)
+make[2]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/init'
+install init_first.o mc13224v_init_first.o
+install init_system.o mc13224v_init_system.o
+install init_application.o mc13224v_init_application.o
+install mc13224v_init_first.o /home/user/gambicoptero-v2/gambicoptero-v2/lib
+install mc13224v_init_system.o /home/user/gambicoptero-v2/gambicoptero-v2/lib
+install mc13224v_init_application.o /home/user/gambicoptero-v2/gambicoptero-v2/lib
+make[2]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src/init'
+make[1]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/src'
+(cd app && make)
+make[1]: Entering directory `/home/user/gambicoptero-v2/gambicoptero-v2/app'
+/home/user/gambicoptero-v2/gambicoptero-v2/bin/eposcc -mcpu=arm7tdmi-s -D__mc13224v__  -Wall -mthumb-interwork -c -ansi -O2  -o master_app.o master_app.cc 
+make[1]: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2/app'
+make: Leaving directory `/home/user/gambicoptero-v2/gambicoptero-v2'

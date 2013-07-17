@@ -1,0 +1,43 @@
+#include <machine.h>
+#include <alarm.h>
+#include <sensor.h>
+#include <battery.h>
+#include <mach/mc13224v/adxl345_i2c.h>
+
+__USING_SYS
+
+OStream cout;
+
+int main() {
+    Alarm::delay(1000000);
+    MC13224V_I2C i2c;
+    unsigned char values[10];
+    i2c.enable();
+
+    values[0] = 1<<3;
+    if(!i2c.write_register(0x53, 0x2D, 1<<3))
+        cout << "ERROR 1\n";
+    values[0] = 0x09;
+    if(!i2c.write_register(0x53, 0x31, 0x01))
+        cout << "ERROR 2\n";
+    values[0] = 8+2+1;
+    if(!i2c.write_register(0x53, 0x2C, 8+2+1))
+        cout << "ERROR 3\n";
+
+    short x,y,z, total;
+    while(1) {
+        if(!i2c.read_register(0x53, 0x32, 6, values))
+            cout << "ERROR 4\n";
+        x = (values[1]<<8) + values[0];
+        y = (values[3]<<8) + values[2];
+        z = (values[5]<<8) + values[4];
+        //cout << "X: " << (float)(x*0.0078) 
+        //    << "\tY: " << (float)(y*0.0078) 
+        //    << "\tZ: " << (float)(z*0.0078) << "\n";
+        cout << x << " " << y << " " << z << "\n";
+        Alarm::delay(10000);
+    }
+
+//    sensor(1);
+}
+

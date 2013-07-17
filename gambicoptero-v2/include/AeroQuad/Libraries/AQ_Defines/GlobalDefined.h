@@ -47,7 +47,7 @@ typedef unsigned char byte;
 Clock clock;
 long unsigned int micros()
 {
-  return 0;//clock.now();
+  return 0; //clock.now();
 }
 
 
