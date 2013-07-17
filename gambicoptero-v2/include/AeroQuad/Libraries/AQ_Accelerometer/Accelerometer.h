@@ -26,7 +26,7 @@
 
 #define SAMPLECOUNT 400.0
 
-float accelScaleFactor[3] = {0.0,0.0,0.0};
+float accelScaleFactor[3] = {0.0078,0.0078,0.0078};
 float runTimeAccelBias[3] = {0, 0, 0};
 float accelOneG = 0.0;
 float meterPerSecSec[3] = {0.0,0.0,0.0};

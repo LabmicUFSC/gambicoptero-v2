@@ -4,8 +4,7 @@ __USING_SYS
 #include <alarm.h>
 #include <sensor.h>
 #include <battery.h>
-#include <mach/mc13224v/adxl345_proxy.h>
-#include <mach/mc13224v/itg3200_proxy.h>
+#include <mach/mc13224v/adxl345_i2c.h>
 #include <periodic_thread.h>
 #include <utility/math.h>
 #include <AeroQuad/AeroQuad/AeroQuad.h>
@@ -18,15 +17,12 @@ __USING_SYS
 #include <AeroQuad/Libraries/AQ_Math/FourtOrderFilter.h>
 #include <AeroQuad/Libraries/AQ_Kinematics/Kinematics_ARG.h>
 #include <AeroQuad/Libraries/AQ_Receiver/Receiver_RemotePC.h>
-
 #include <mach/mc13224v/quadcopter_network.h>
 
 OStream cout;
-ADXL345_Proxy acceleroso;
-ITG3200_Proxy gyroso;
+ITG3200_I2C gyroso;
 
 volatile bool network_ok;
-
 void maca_handler(MACA_Transceiver::Event event)
 {
     if(event == MACA_Transceiver::LOST_COMMUNICATION)
@@ -36,49 +32,37 @@ void maca_handler(MACA_Transceiver::Event event)
 	}
     else if(event == MACA_Transceiver::BEACON_READY)
 		;
-//        cout<<"Network received data from coordinator!\n";
+        //cout<<"Network received data from coordinator!\n";
     else if(event == MACA_Transceiver::DATA_READY)
 		;
-  //      cout<<"Network received feedback data!\n";
-}
-
-void _evaluateGyroRate()
-{
-  gyroso.measureGyro();
-  gyroRate[XAXIS] = gyroso.sample_x();
-  gyroRate[YAXIS] = gyroso.sample_y();
-  gyroRate[ZAXIS] = gyroso.sample_z();
-}
-
-void _evaluateMetersPerSec()
-{
-  acceleroso.measureAccel();
-  accelSample[XAXIS] = acceleroso.sample_x();
-  accelSample[YAXIS] = acceleroso.sample_y();
-  accelSample[ZAXIS] = acceleroso.sample_z();
+        //cout<<"Network received feedback data!\n";
 }
 
 int task_100hz() {
-
 	int i = 0;
+  
+
   while(network_ok) {
-      G_Dt = (currentTime - hundredHZpreviousTime) / 1000000.0;
-      hundredHZpreviousTime = currentTime;
+      measureAccel();
+      //measureGyro();
+      //if(!gyroso.measureGyro())
+      //  for(;;)cout<<"TRETA\n";
+      gyroRate[XAXIS] = gyroso.sample_x();
+      gyroRate[YAXIS] = gyroso.sample_y();
+      gyroRate[ZAXIS] = gyroso.sample_z();
+      //evaluateMetersPerSec();
+      // envia pela rede
+      //set_data_coordinator( short accx, short accy, short accz, short gyrx, short gyry, short gyrz );
+      // precisa de um conversor de precisão float -> short
       
-      _evaluateGyroRate();
-      _evaluateMetersPerSec();
+      Quadcopter_Network::set_data_coordinator(accelSample[XAXIS], accelSample[YAXIS], accelSample[ZAXIS], gyroRate[XAXIS], gyroRate[YAXIS], gyroRate[ZAXIS]);
 
 	  i=(i+1)%100;
 	  if(!i)
-	      cout << "X: " << accelSample[0] << "    Y: " << accelSample[1] << "    Z: " << accelSample[2] << "\n";
-
-      for (int axis = XAXIS; axis <= ZAXIS; axis++) {
-        filteredAccel[axis] = computeFourthOrder(accelSample[axis], &fourthOrder[axis]);
-      }
-        
-      calculateKinematics(gyroRate[XAXIS], gyroRate[YAXIS], gyroRate[ZAXIS], filteredAccel[XAXIS], filteredAccel[YAXIS], filteredAccel[ZAXIS], G_Dt);
-      
-      processFlightControl();
+	  {
+		  cout << "accelerometer: (" << accelSample[XAXIS] << "     " << accelSample[YAXIS] << "     " << accelSample[ZAXIS] << ")    ~~    ";
+		  cout << "gyroscope: ("<< gyroRate[XAXIS] << ",     " << gyroRate[YAXIS] << ",     " << gyroRate[ZAXIS] << ")\n";
+	  }
 
       Periodic_Thread::wait_next();
   }
@@ -86,8 +70,18 @@ int task_100hz() {
 }
 
 int main() {
-	network_ok = true;
-    Quadcopter_Network::init(&maca_handler);
+	network_ok = true;;
+      Quadcopter_Network::init(&maca_handler);
+
+    initializeAccel();
+    if(!gyroso.initGyro())
+     for(;;) cout << "TRETA2\n";
+    //if(!initializeGyro()) {
+    // for(;;)
+    //  cout << "CAGOU\n";
+    //}
+    //computeAccelBias();
+
 	Quadcopter_Network::run();
     Periodic_Thread thread(&task_100hz, 10000);
     thread.join();

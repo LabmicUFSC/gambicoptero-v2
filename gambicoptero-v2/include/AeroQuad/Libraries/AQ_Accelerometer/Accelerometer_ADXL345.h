@@ -40,6 +40,9 @@ void initializeAccel() {
   
 void measureAccel() {
   accel->measureAccel();
+  accelSample[XAXIS] = accel->sample_x();
+  accelSample[YAXIS] = accel->sample_y();
+  accelSample[ZAXIS] = accel->sample_z();
   meterPerSecSec[XAXIS] = accel->sample_x() * accelScaleFactor[XAXIS] + runTimeAccelBias[XAXIS];
   meterPerSecSec[YAXIS] = accel->sample_y() * accelScaleFactor[YAXIS] + runTimeAccelBias[YAXIS];
   meterPerSecSec[ZAXIS] = accel->sample_z() * accelScaleFactor[ZAXIS] + runTimeAccelBias[ZAXIS];

@@ -47,7 +47,7 @@ volatile uint8_t atomicPWM_PIN5_lowState = 0;
 volatile uint8_t atomicPWM_PIN5_highState = 0;
 volatile uint8_t atomicPWM_PIN6_lowState = 0;
 volatile uint8_t atomicPWM_PIN6_highState = 0;
-  
+OStream coutMotors;  
 void initializeSoftPWM() {
   /*TCCR0A = 0; // normal counting mode
   TIMSK0 |= (1<<OCIE0A); // Enable CTC interrupt
@@ -132,6 +132,7 @@ void writeMotors() {
     }
   #endif
   */
+  coutMotors << "Motor Command = (" << motorCommand[MOTOR1] << ", " << motorCommand[MOTOR2] << ", " << motorCommand[MOTOR3] << ", " << motorCommand[MOTOR4] << ")\n";
 }
 
 void commandAllMotors(int command) {
